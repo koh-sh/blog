@@ -1,4 +1,4 @@
-baseURL = "https://blog.koh-sh.com/"
+baseURL = "https://blog-ddd.pages.dev"
 title = "koh's blog"
 theme = "m10c"
 paginate = 5
