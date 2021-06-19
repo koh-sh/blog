@@ -1,0 +1,35 @@
+baseURL = "https://blog.koh-sh.com/"
+title = "koh's blog"
+theme = "m10c"
+paginate = 5
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[params]
+  author = "koh-sh"
+  description = "Sys Admin who loves automation."
+  menu_item_separator = " - "
+  avatar = "avatar.png"
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/koh-sh"
+  [[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/koh_sh"
