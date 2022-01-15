@@ -2,7 +2,7 @@ baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 theme = "m10c"
 paginate = 5
-tags = ["hugo", "CloudflarePages", "domain"]
+tags = ["hugo", "CloudflarePages", "domain", "self-build-pc"]
 
 [menu]
   [[menu.main]]
@@ -23,7 +23,7 @@ tags = ["hugo", "CloudflarePages", "domain"]
 
 [params]
   author = "koh-sh"
-  description = "Sys Admin who loves automation."
+  description = "A System Administrator who is migrating to SRE."
   menu_item_separator = " - "
   avatar = "avatar.png"
   [[params.social]]
