@@ -37,7 +37,7 @@ PCスペックで整理するとこんな感じです。
 |要素|スペック|
 |---|---|
 |CPU|Core i5 6 core 12 thread|
-|GPU|TGX 1660 super|
+|グラフィックボード|GTX 1660 super|
 |メモリ|8GB * 2枚|
 |ストレージ|M.2 SSD 1TB|
 
