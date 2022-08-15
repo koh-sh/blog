@@ -2,7 +2,12 @@ baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 theme = "m10c"
 paginate = 5
-tags = ["hugo", "CloudflarePages", "domain", "self-build-pc"]
+tags = ["hugo",
+        "Cloudflare-Pages",
+        "domain",
+        "self-build-pc",
+        "GitHub-Pages",
+        "Jekyll"]
 
 [menu]
   [[menu.main]]

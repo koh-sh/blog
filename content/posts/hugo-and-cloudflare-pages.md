@@ -1,7 +1,7 @@
 ---
 title: "Cloudflare PagesとHugoでブログ作った"
 date: 2021-06-20T00:02:07+09:00
-tags: ["hugo", "CloudflarePages"]
+tags: ["hugo", "Cloudflare-Pages"]
 draft: false
 ---
 
