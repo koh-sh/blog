@@ -7,6 +7,8 @@ tags = ["hugo",
         "domain",
         "self-build-pc",
         "GitHub-Pages",
+        "Kubernetes",
+        "Argo-Rollouts",
         "Jekyll"]
 
 [menu]
