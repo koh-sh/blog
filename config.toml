@@ -9,7 +9,9 @@ tags = ["hugo",
         "GitHub-Pages",
         "Kubernetes",
         "Argo-Rollouts",
-        "Jekyll"]
+        "Jekyll",
+        "system-design",
+        "poem"]
 
 [menu]
   [[menu.main]]
