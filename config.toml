@@ -32,7 +32,7 @@ tags = ["hugo",
 
 [params]
   author = "koh-sh"
-  description = "A System Administrator who is migrating to SRE."
+  description = "New to SRE. Formar System Administrator."
   menu_item_separator = " - "
   avatar = "avatar.png"
   [[params.social]]
