@@ -14,7 +14,10 @@ tags = [
   "system-design",
   "poem",
   "terraform",
-  "kubernetes"
+  "kubernetes",
+  "golang",
+  "GitHub-Actions",
+  "GoReleaser"
 ]
 
 [menu]
