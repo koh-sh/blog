@@ -50,3 +50,6 @@ tags = [
     icon = "twitter"
     name = "Twitter"
     url = "https://twitter.com/koh_sh"
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
