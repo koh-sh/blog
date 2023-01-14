@@ -27,7 +27,8 @@ if (inputBox !== null) {
         inputBox.value = searchQuery || "";
         executeSearch(searchQuery, false);
     } else {
-        document.getElementById('search-results').innerHTML = '<p class="search-results-empty">Please enter a word or phrase above, or see <a href="/tags/">all tags</a>.</p>';
+        hide(document.querySelector('.search-loading'));
+        document.getElementById('search-results').innerHTML = '<p class="search-results-empty">Please enter a word or phrase in the input, or see <a href="/tags/">all tags</a>.</p>';
     }
 }
 
