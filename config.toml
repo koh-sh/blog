@@ -1,7 +1,9 @@
 baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 theme = "m10c"
-paginate = 10
+paginate = 5
+hasCJKLanguage = true
+summaryLength = 150
 tags = [
   "hugo",
   "Cloudflare-Pages",
