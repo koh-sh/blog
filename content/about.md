@@ -4,7 +4,7 @@ date: 2021-06-21T16:37:06+09:00
 draft: false
 ---
 
-A System Administrator who is migrating to SRE.
+{{< param description >}}
 
 [Links]
 - [Twitter](https://twitter.com/koh_sh)
