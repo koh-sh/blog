@@ -169,11 +169,11 @@ INFO[0000] Argo Rollouts Dashboard is now available at http://localhost:3100/rol
 
 `http://localhost:3100/rollouts`にアクセスするとrollout-bluegreenができています。
 
-![ダッシュボード](/images/argo-rollouts-bluegreen/1.png)
+![ダッシュボード](/images/argo-rollouts-bluegreen/1.avif)
 
 rollout-bluegreenをクリックすると詳細や右上に操作するボタンがあります。
 
-![Rollout詳細](/images/argo-rollouts-bluegreen/2.png)
+![Rollout詳細](/images/argo-rollouts-bluegreen/2.avif)
 
 CLIの場合は下記で表示できます。
 
@@ -323,7 +323,7 @@ NAME                                           KIND        STATUS        AGE    
 
 またダッシュボードからみるとRivisionが2になっていてtagも変わってることが確認できます。
 
-![切り替え後ダッシュボード](/images/argo-rollouts-bluegreen/3.png)
+![切り替え後ダッシュボード](/images/argo-rollouts-bluegreen/3.avif)
 
 # まとめ
 

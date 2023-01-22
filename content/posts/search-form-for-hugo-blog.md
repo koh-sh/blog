@@ -10,7 +10,7 @@ tags: ["hugo"]
 
 シンプルかつ高速でとても気に入っているのですが、流石に記事検索機能が欲しいなと思っていたので追加しました。
 
-![img](/images/search-form-for-hugo-blog/1.png)
+![img](/images/search-form-for-hugo-blog/1.avif)
 
 # 実装
 
@@ -70,7 +70,7 @@ Hugoそのものに検索機能はないのですが、公式ドキュメント�
 
 # 動作確認
 
-![img](/images/search-form-for-hugo-blog/2.png)
+![img](/images/search-form-for-hugo-blog/2.avif)
 
 このような形で検索ができ、ヒットした箇所がハイライトされます。  
 ただし使用している[Fuse.js][link6]が曖昧検索の機能のため綺麗にマッチした記事以外も検索結果に表示されます。
