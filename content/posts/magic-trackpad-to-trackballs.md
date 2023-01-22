@@ -36,11 +36,11 @@ BuildVersion:		22A400
 
 インストール後に再起動するとシステム設定の一番下にELECOM Mouse Assistantが追加されます。
 
-![img](/images/magic-trackpad-to-trackballs/1.png)
+![img](/images/magic-trackpad-to-trackballs/1.avif)
 
 ボタン配置はちょこちょこ試しましたがこんな感じにしています。
 
-![img](/images/magic-trackpad-to-trackballs/2.png)
+![img](/images/magic-trackpad-to-trackballs/2.avif)
 
 デフォルトから変えてるところは
 

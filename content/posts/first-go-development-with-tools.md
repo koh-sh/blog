@@ -167,8 +167,8 @@ changelog:
 Actionsタブで公式のgoのworkflowがそのままtest用として利用できます。  
 mainにpushかPRが発行されたときに動く形になっているので適宜変更してください。
 
-![actions](/images/first-go-development-with-tools/1.png)
-![go](/images/first-go-development-with-tools/2.png)
+![actions](/images/first-go-development-with-tools/1.avif)
+![go](/images/first-go-development-with-tools/2.avif)
 
 ## release
 

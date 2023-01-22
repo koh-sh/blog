@@ -144,7 +144,7 @@ hello world
 手元で動作確認できます。  
 hugo serverしてhttp://localhost:1313/にアクセス
 
-![localhost](/images/hugo-and-cloudflare-pages/1.png)
+![localhost](/images/hugo-and-cloudflare-pages/1.avif)
 
 ## GitHubにリポジトリ作成
 
@@ -182,21 +182,21 @@ GitHubとの連携をしてリポジトリを選択するとそのままbuildの
 
 リポジトリの選択をして、
 
-![リポジトリ選択](/images/hugo-and-cloudflare-pages/2.png)
+![リポジトリ選択](/images/hugo-and-cloudflare-pages/2.avif)
 
 buildの設定をします。  
 Flamework presetからHugoを選択
 
-![build設定](/images/hugo-and-cloudflare-pages/3.png)
+![build設定](/images/hugo-and-cloudflare-pages/3.avif)
 
 buildログが流れます。  
 ただしHugoはデフォルトでインストールされるバージョンが2021/6/19時点だと0.54.0でかなり古くおそらくエラーになります。
 
-![build log](/images/hugo-and-cloudflare-pages/4.png)
+![build log](/images/hugo-and-cloudflare-pages/4.avif)
 
 環境変数にてHugoのバージョンを指定して再度buildを実施します。
 
-![環境変数設定](/images/hugo-and-cloudflare-pages/5.png)
+![環境変数設定](/images/hugo-and-cloudflare-pages/5.avif)
 
 デプロイ完了後にhogehoge.pages.devのドメインが払い出され、サイトにアクセスできます。
 
@@ -214,7 +214,7 @@ https://blog-ddd.pages.dev
 set up a custom domainから登録したいドメインを入力し、画面に表示される通りにCNAMEを設定します。  
 
 
-![ドメイン設定](/images/hugo-and-cloudflare-pages/6.png)
+![ドメイン設定](/images/hugo-and-cloudflare-pages/6.avif)
 
 CNAMEを設定してから確認されるまで私の場合は1時間近くかかりました。すぐに設定が反映されない可能性がありますが少し待ちましょう。
 
@@ -222,8 +222,8 @@ CNAMEを設定してから確認されるまで私の場合は1時間近くか�
 
 設定からWeb Analyticsを有効化できるのでしておきます。
 
-![Web Analytics1](/images/hugo-and-cloudflare-pages/7.png)
-![Web Analytics2](/images/hugo-and-cloudflare-pages/8.png)
+![Web Analytics1](/images/hugo-and-cloudflare-pages/7.avif)
+![Web Analytics2](/images/hugo-and-cloudflare-pages/8.avif)
 
 ## まとめ
 
