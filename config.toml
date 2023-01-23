@@ -19,6 +19,7 @@ tags = [
   "kubernetes",
   "golang",
   "GitHub-Actions",
+  "gadget",
   "GoReleaser"
 ]
 

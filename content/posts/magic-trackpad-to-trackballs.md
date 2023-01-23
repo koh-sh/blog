@@ -2,7 +2,7 @@
 title: "Magic Trackpadからトラックボールマウスに乗り換える"
 date: 2023-01-21T16:02:07+09:00
 draft: false
-tags: []
+tags: ["gadget"]
 ---
 
 5,6年くらいずっとMagic Trackpadを使っていたんですが、手首がたまに痛くなってしまいトラックボールマウスを試してみました。
