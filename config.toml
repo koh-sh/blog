@@ -20,7 +20,9 @@ tags = [
   "golang",
   "GitHub-Actions",
   "gadget",
-  "GoReleaser"
+  "GoReleaser",
+  "Raspberry-Pi",
+  "docker"
 ]
 
 [menu]
