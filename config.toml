@@ -22,7 +22,10 @@ tags = [
   "gadget",
   "GoReleaser",
   "Raspberry-Pi",
-  "docker"
+  "docker",
+  "Python",
+  "LLM",
+  "LangChain"
 ]
 
 [menu]
