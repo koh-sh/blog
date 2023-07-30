@@ -25,7 +25,9 @@ tags = [
   "docker",
   "Python",
   "LLM",
-  "LangChain"
+  "LangChain",
+  "AWS",
+  "CodeBuild"
 ]
 
 [menu]
