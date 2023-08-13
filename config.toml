@@ -27,7 +27,8 @@ tags = [
   "LLM",
   "LangChain",
   "AWS",
-  "CodeBuild"
+  "CodeBuild",
+  "Cobra"
 ]
 
 [menu]
