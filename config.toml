@@ -1,6 +1,6 @@
 baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
-theme = "m10c"
+theme = "github.com/vaga/hugo-theme-m10c"
 paginate = 5
 hasCJKLanguage = true
 summaryLength = 150
@@ -64,3 +64,7 @@ tags = [
 
 [outputs]
     home = ["HTML", "RSS", "JSON"]
+
+[module]
+[[module.imports]]
+  path = 'github.com/vaga/hugo-theme-m10c'
