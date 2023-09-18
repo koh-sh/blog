@@ -1,5 +1,5 @@
 ---
-title: "AWS CodebuildでGitHub Actionsを利用する時のエラー"
+title: "AWS CodebuildでGitHub Actionsを利用する際に出たエラー"
 date: 2023-09-18T21:10:09+09:00
 draft: false
 tags: ["GitHub-Actions", "CodeBuild"]
