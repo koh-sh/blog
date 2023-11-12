@@ -2,7 +2,7 @@
 title: "複数のCodebuildを同時に「上書きでビルドを開始する」CLIツールをGoで書いた"
 date: 2023-07-31T00:11:57+09:00
 draft: false
-tags: ["golang", "AWS", "CodeBuild", "Cobra"]
+tags: ["golang", "AWS", "CodeBuild", "Cobra", "Tools"]
 ---
 
 # 概要
