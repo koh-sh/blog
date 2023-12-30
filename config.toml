@@ -4,32 +4,6 @@ theme = "github.com/vaga/hugo-theme-m10c"
 paginate = 5
 hasCJKLanguage = true
 summaryLength = 150
-tags = [
-  "hugo",
-  "Cloudflare-Pages",
-  "domain",
-  "self-build-pc",
-  "GitHub-Pages",
-  "Kubernetes",
-  "Argo-Rollouts",
-  "Jekyll",
-  "system-design",
-  "poem",
-  "terraform",
-  "kubernetes",
-  "golang",
-  "GitHub-Actions",
-  "gadget",
-  "GoReleaser",
-  "Raspberry-Pi",
-  "docker",
-  "Python",
-  "LLM",
-  "LangChain",
-  "AWS",
-  "CodeBuild",
-  "Cobra"
-]
 
 [menu]
   [[menu.main]]
