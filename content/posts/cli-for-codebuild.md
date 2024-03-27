@@ -112,7 +112,7 @@ func convertBuildConfigToStartBuildInput(build Build) codebuild.StartBuildInput 
 
 [link1]: https://github.com/koh-sh/codebuild-multirunner
 [link2]: https://docs.aws.amazon.com/ja_jp/codebuild/latest/userguide/run-build-cli.html
-[link3]: gopkg.in/yaml.v3
+[link3]: https://gopkg.in/yaml.v3
 [link4]: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/codebuild#StartBuildInput
 [link5]: https://github.com/jinzhu/copier
 [link6]: https://github.com/koh-sh/codebuild-multirunner/blob/main/cmd/run.go#L72
