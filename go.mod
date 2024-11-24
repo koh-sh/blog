@@ -1,5 +1,5 @@
 module github.com/koh-sh/blog
 
-go 1.21.0
+go 1.23.3
 
-require github.com/vaga/hugo-theme-m10c v0.0.0-20230107153318-1adc079e39fe // indirect
+require github.com/vaga/hugo-theme-m10c v0.0.0-20241019113302-8295ee808a81 // indirect
