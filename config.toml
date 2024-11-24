@@ -1,7 +1,6 @@
 baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 theme = "github.com/vaga/hugo-theme-m10c"
-paginate = 5
 hasCJKLanguage = true
 summaryLength = 150
 
@@ -27,6 +26,7 @@ summaryLength = 150
   description = "New to SRE. Formar System Administrator."
   menu_item_separator = " - "
   avatar = "avatar.avif"
+  truncateLength = 200
   [[params.social]]
     icon = "github"
     name = "Github"
@@ -42,3 +42,6 @@ summaryLength = 150
 [module]
 [[module.imports]]
   path = 'github.com/vaga/hugo-theme-m10c'
+
+[pagination]
+pagerSize = 5
