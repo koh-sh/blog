@@ -14,7 +14,7 @@ tags: ["git", "commitlint"]
 
 公式の手順だと、commitlintとhuskyをプロジェクトごとにインストールする形になっている。
 
-<https://commitlint.js.org/guides/local-setup.html>
+{{< link-preview "https://commitlint.js.org/guides/local-setup.html" >}}
 
 今回の場合、特定のプロジェクトやチームに導入したいというよりも、自分の習熟のために導入したかった。  
 そのため自分のローカルにおいてはどのプロジェクトに対しても、常にcommitlintを実行するように設定してみた。

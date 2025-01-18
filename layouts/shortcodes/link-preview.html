@@ -1,0 +1,22 @@
+{{ $url := .Get "url" | default (.Get 0) }}
+{{ $title := .Get "title" | default "" }}
+{{ $description := .Get "description" | default "" }}
+{{ $image := .Get "image" | default "" }}
+{{ $cleanURL := $url | replaceRE "/$" "" }}
+
+<div class="link-preview" data-url="{{ $url }}">
+    <a href="{{ $url }}" target="_blank" rel="noopener noreferrer" class="link-preview-card">
+        <div class="link-preview-content">
+            <div class="link-preview-text">
+                <h3 class="link-preview-title">{{ $title | default $cleanURL }}</h3>
+                {{ if $description }}
+                <p class="link-preview-description">{{ $description }}</p>
+                {{ end }}
+                <span class="link-preview-url">{{ $cleanURL }}</span>
+            </div>
+            {{ if $image }}
+            <img src="{{ $image }}" alt="{{ $title | default $cleanURL }}" class="link-preview-image" loading="lazy" />
+            {{ end }}
+        </div>
+    </a>
+</div>

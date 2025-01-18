@@ -12,6 +12,7 @@
     content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
   {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | css.Sass | resources.Minify | resources.Fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+  <link rel="stylesheet" href="/css/link-preview.css" />
 
   {{ template "_internal/google_analytics.html" . }}
   {{ template "_internal/twitter_cards.html" . }}
@@ -56,6 +57,7 @@
     {{ .Content }}
     {{ end }}
   </main>
+  <script src="/js/link-preview.js"></script>
 </body>
 
 </html>
