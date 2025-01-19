@@ -4,7 +4,7 @@
   <ul class="posts-list">
     {{ range where .Paginator.Pages "Type" "!=" "page" }}
     <li class="posts-list-item">
-      <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}<br></a>
+      <a class="posts-list-item-title" href="{{ .RelPermalink }}">{{ .Title }}<br></a>
       {{ .Content | plainify | strings.Truncate .Site.Params.truncateLength }}
       {{ if .Truncated }} ... {{ end }}
       <span class="posts-list-item-description">
