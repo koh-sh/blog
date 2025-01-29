@@ -33,13 +33,17 @@ summaryLength = 150
   avatar = "avatar.avif"
   truncateLength = 200
   [[params.social]]
-    icon = "github"
-    name = "Github"
+    icon = "brand-github"
+    name = "GitHub"
     url = "https://github.com/koh-sh"
   [[params.social]]
     icon = "twitter"
     name = "Twitter"
     url = "https://twitter.com/koh_sh"
+  [[params.social]]
+    icon = "brand-zenn"
+    name = "Zenn"
+    url = "https://zenn.dev/koh_sh"
 
 [outputs]
     home = ["HTML", "RSS", "JSON"]
