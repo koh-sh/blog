@@ -1,7 +1,5 @@
 .PHONY: server new mod build ss dev setup
 
-POST = example.md
-
 server:
 	hugo server
 
@@ -15,9 +13,10 @@ dev:
 setup:
 	npm install -g wrangler
 
-# make new POST=test.md
+# Create a new article (interactive)
 new:
-	hugo new posts/${POST}
+	@read -p "Enter the article filename (e.g. example.md): " post_name; \
+	hugo new posts/$$post_name
 
 mod:
 	hugo mod get -u
