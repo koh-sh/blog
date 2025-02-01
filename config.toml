@@ -22,7 +22,7 @@ summaryLength = 150
     weight = 3
   [[menu.main]]
     identifier = "contributes"
-    name = "Contributes"
+    name = "My Contributes"
     url = "/contributes/"
     weight = 4
 

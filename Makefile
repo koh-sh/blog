@@ -8,6 +8,7 @@ dev:
 	@trap 'kill 0; exit 0' SIGINT SIGTERM; \
 	hugo server & \
 	wrangler pages dev . & \
+	sleep 1 && open http://localhost:1313/ & \
 	wait
 
 setup:
