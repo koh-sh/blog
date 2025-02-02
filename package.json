@@ -1,0 +1,18 @@
+{
+    "name": "blog",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "lint": "eslint 'functions/**/*.{js,ts}'",
+        "type-check": "tsc --noEmit",
+        "ci": "npm run lint && npm run type-check",
+        "update-deps": "npm install @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest eslint@latest typescript@latest"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^8.0.0",
+        "@typescript-eslint/parser": "^8.0.0",
+        "eslint": "^9.0.0",
+        "typescript": "^5.0.0"
+    }
+}
