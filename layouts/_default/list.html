@@ -2,10 +2,11 @@
 <article>
   <h1>{{ .Title }}</h1>
   <ul class="posts-list">
-    {{ range where .Paginator.Pages "Type" "!=" "page" }}
+    {{ $paginator := cond .IsHome (.Paginate (where .Site.RegularPages "Section" "posts")) .Paginator }}
+    {{ range $paginator.Pages }}
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .RelPermalink }}">{{ .Title }}<br></a>
-      {{ .Content | plainify | strings.Truncate .Site.Params.truncateLength }}
+      {{ .Content | plainify | strings.Truncate $.Site.Params.truncateLength }}
       {{ if .Truncated }} ... {{ end }}
       <span class="posts-list-item-description">
         {{ partial "icon.html" (dict "ctx" $ "name" "calendar") }}
@@ -16,7 +17,9 @@
       </span>
     </li>
     {{ end }}
+    {{ if gt $paginator.TotalPages 1 }}
+    {{ partial "pagination.html" $ }}
+    {{ end }}
   </ul>
-  {{ partial "pagination.html" $ }}
 </article>
 {{ end }}
