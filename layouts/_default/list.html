@@ -1,11 +1,14 @@
 {{ define "main" }}
 <article>
   <h1>{{ .Title }}</h1>
+
+  {{ $pages := cond (eq .Kind "term") .Data.Pages (where .Site.RegularPages "Section" "posts") }}
+  {{ $paginator := .Paginate $pages }}
   <ul class="posts-list">
-    {{ range where .Paginator.Pages "Type" "!=" "page" }}
+    {{ range $paginator.Pages }}
     <li class="posts-list-item">
       <a class="posts-list-item-title" href="{{ .RelPermalink }}">{{ .Title }}<br></a>
-      {{ .Content | plainify | strings.Truncate .Site.Params.truncateLength }}
+      {{ .Content | plainify | strings.Truncate $.Site.Params.truncateLength }}
       {{ if .Truncated }} ... {{ end }}
       <span class="posts-list-item-description">
         {{ partial "icon.html" (dict "ctx" $ "name" "calendar") }}
@@ -17,6 +20,6 @@
     </li>
     {{ end }}
   </ul>
-  {{ partial "pagination.html" $ }}
+  {{ partial "pagination.html" . }}
 </article>
 {{ end }}
