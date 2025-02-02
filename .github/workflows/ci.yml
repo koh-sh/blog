@@ -16,16 +16,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run ESLint
-        run: npx eslint 'functions/**/*.{js,ts}'
+        run: npm run lint
 
       - name: Type check
-        run: npx tsc --noEmit
+        run: npm run type-check
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -34,4 +33,4 @@ jobs:
           extended: true
 
       - name: Build Hugo site
-        run: hugo --minify 
+        run: hugo --minify
