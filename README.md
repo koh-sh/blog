@@ -1,3 +1,3 @@
 # blog
 
-https://blog.koh-sh.com
+<https://blog.koh-sh.com>
