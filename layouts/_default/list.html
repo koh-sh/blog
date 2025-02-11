@@ -16,6 +16,13 @@
         <span class="posts-list-item-separator">-</span>
         {{ partial "icon.html" (dict "ctx" $ "name" "clock") }}
         {{ .ReadingTime }} min read
+        {{ if .Params.tags }}
+        <span class="posts-list-item-separator">-</span>
+        {{ partial "icon.html" (dict "ctx" $ "name" "tag") }}
+        {{ range $index, $tag := .Params.tags }}
+        <a href="/tags/{{ . | urlize }}" class="tag">{{ . }}</a>
+        {{- end }}
+        {{ end }}
       </span>
     </li>
     {{ end }}
