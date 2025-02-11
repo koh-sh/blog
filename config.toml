@@ -20,16 +20,11 @@ summaryLength = 150
     name = "About"
     url = "/about/"
     weight = 3
-  [[menu.main]]
-    identifier = "contributes"
-    name = "My Contributes"
-    url = "/contributes/"
-    weight = 4
 
 [params]
   author = "koh-sh"
-  description = "New to SRE. Formar System Administrator."
-  menu_item_separator = " <br> "
+  description = "I'm an SRE who previously worked as a system administrator and infrastructure engineer."
+  menu_item_separator = " - "
   avatar = "avatar.avif"
   truncateLength = 200
   [[params.social]]
