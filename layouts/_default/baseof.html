@@ -10,7 +10,8 @@
   <meta name="author" content="{{ .Site.Params.author | default " John Doe" }}" />
   <meta name="description"
     content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
-  {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | css.Sass | resources.Minify | resources.Fingerprint -}}
+  {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | css.Sass |
+  resources.Minify | resources.Fingerprint -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 
   {{ template "_internal/google_analytics.html" . }}
@@ -37,7 +38,7 @@
       {{- end }}
     </nav>
     {{- end }}
-    <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
+    <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit." }}</p>
     {{- with .Site.Params.social }}
     <div class="app-header-social">
       {{ range . }}
