@@ -26,6 +26,7 @@ summaryLength = 150
   description = "I'm an SRE who previously worked as a system administrator and infrastructure engineer."
   menu_item_separator = " - "
   avatar = "avatar.avif"
+  images = ["avatar.avif"]  # OGP default image
   truncateLength = 200
   [[params.social]]
     icon = "brand-github"
