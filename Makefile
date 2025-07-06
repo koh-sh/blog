@@ -1,4 +1,4 @@
-.PHONY: server new mod build ss dev setup
+.PHONY: server new mod build ss dev
 
 server:
 	hugo server
@@ -7,12 +7,9 @@ dev:
 	@echo "Starting development environment..."
 	@trap 'kill 0; exit 0' SIGINT SIGTERM; \
 	hugo server & \
-	wrangler pages dev . & \
+	npx wrangler pages dev . & \
 	sleep 1 && open http://localhost:1313/ & \
 	wait
-
-setup:
-	npm install -g wrangler
 
 # Create a new article (interactive)
 new:
