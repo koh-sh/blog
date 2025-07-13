@@ -4,7 +4,7 @@ date: 2025-07-06T22:44:11+09:00
 draft: false
 tags: ["dotfiles", "chezmoi"]
 # images: [] # OGP image
-# lastmod: 2025-07-06T13:14:11+09:00
+lastmod: 2025-07-13T23:34:11+09:00
 ---
 
 ## XDG Base Directoryとは
@@ -18,12 +18,12 @@ tags: ["dotfiles", "chezmoi"]
 
 ## XDG Base Directory対応
 
-せっかくなので自身の dotfiles も HOME 直下からなるべくXDG仕様に対応するようにしてみました。  
+せっかくなので自身の dotfiles も HOME 直下からなるべくXDG仕様へ対応するようにしてみました。  
 こちらの記事を参考にさせていただきました。ありがとうございます。
 
 <https://qiita.com/LuckyWindsck/items/ef8ae12a3450344d8902>
 
-基本的には記事内でも紹介されている、xdg-ninjaを使用して一つずつ対応していきます。
+基本的には記事内でも紹介されている、xdg-ninjaを使用して1つずつ対応していきます。
 
 <https://github.com/b3nj5m1n/xdg-ninja>
 
@@ -42,19 +42,19 @@ ANSIBLE_HOMEでパスを指定できますが、各種プラグインや設定�
 
 ### Docker
 
-ninja云くdockerは対応済みとされますが、Docker Desktopの場合は未対応です。
+ninjaによるとdockerは対応済みとされますが、Docker Desktopの場合は未対応です。
 
 <https://github.com/docker/roadmap/issues/408>
 
 ### NPM
 
 npmの設定自体は `NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc` の設定 + npmrcの設定で完了します。  
-ただし合わせて `PATH="$XDG_DATA_HOME/npm/bin:$PATH"` と `NODE_PATH="$XDG_DATA_HOME/npm/lib/node_modules"` も設定しないとCLI系が参照できなくなります。  
-(もしかしたらmise固有かもしれないです)
+ただし合わせて `PATH="$XDG_DATA_HOME/npm/bin:$PATH"` と `NODE_PATH="$XDG_DATA_HOME/npm/lib/node_modules"` も設定します。これらがないとCLI系が参照できなくなります。  
+(mise固有の可能性があります)
 
 ## chezmoiでのdotfiles管理
 
-これまではシェルスクリプトで dotfiles の管理 (=リポジトリのファイルを HOME にコピー) をしていましたが、少し辛くなってきたのでこれを機に chezmoi を試してみることにしました。
+これまではシェルスクリプトで dotfiles の管理をしていました。リポジトリのファイルを HOME にコピーする仕組みでしたが、少し辛くなってきたのでこれを機に chezmoi を試してみることにしました。
 
 <https://www.chezmoi.io>
 
@@ -79,7 +79,7 @@ single binaryでセットアップが楽なのと、やりたかったファイ�
 <https://zenn.dev/ganariya/articles/useful-features-of-chezmoi>  
 <https://github.com/twpayne/dotfiles>
 
-こちらもいくつかデフォルトから変えているところやハマったところをメモすると
+こちらもいくつかデフォルトから変えているところやハマったところをメモすると。
 
 ### sourceDirの変更
 
@@ -111,7 +111,7 @@ chezmoi: /Users/koh/.config/chezmoi/chezmoi.toml: cannot add chezmoi's config fi
 
 <https://github.com/twpayne/chezmoi/issues/3638>
 
-こちらのissueを参考に、config templateとして管理する必要があります。  
+こちらのissueを参考に、config templateとして管理します。  
 
 ```bash
 mv ~/.config/chezmoi/chezmoi.toml "$(chezmoi source-path)/.chezmoi.toml.tmpl"
