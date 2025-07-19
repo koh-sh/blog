@@ -32,5 +32,12 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Setup Dart Sass
+        run: |
+          DART_SASS_VERSION=1.80.7
+          curl -LJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          tar -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+          echo "$GITHUB_WORKSPACE/dart-sass" >> $GITHUB_PATH
+
       - name: Build Hugo site
         run: hugo --minify
