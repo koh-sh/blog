@@ -23,4 +23,4 @@ draft: false
 
 ## 🔨 Skills
 
-{{< img src="https://skillicons.dev/icons?theme=light&perline=6&i=go,python,bash,linux,docker,kubernetes,terraform,ansible,aws,git,github,githubactions" alt="my skills" height="100" >}}
+{{< img src="https://skillicons.dev/icons?theme=dark&perline=6&i=go,python,bash,linux,docker,kubernetes,terraform,ansible,aws,git,github,githubactions" alt="my skills" height="100" >}}

@@ -31,6 +31,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .contribution-item {
+        transition: none;
+    }
+    
+    .contribution-item:hover {
+        transform: none;
+    }
+}
+
 .contribution-main {
     flex: 1;
     min-width: 0;
@@ -48,38 +59,30 @@
     min-width: 0;
 }
 
-.contribution-item .contribution-main .contribution-header .contribution-content .contribution-title {
+.contribution-title {
     margin: 0 0 0.5rem 0;
-    font-size: 2rem !important;
+    font-size: var(--font-size-title, 2rem);
     font-weight: 600;
-    line-height: 1.4;
+    line-height: var(--line-height-title, 1.4);
     color: var(--color-text);
 }
 
-.contribution-item .contribution-main .contribution-header .contribution-content .contribution-meta {
-    font-size: 1.8rem !important;
+.contribution-meta {
+    font-size: var(--font-size-meta, 1.8rem);
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;
+    line-height: var(--line-height-content, 1.5);
 }
 
-.contribution-item .contribution-main .contribution-description {
-    font-size: 1.8rem !important;
+.contribution-description {
+    font-size: var(--font-size-content, 1.8rem);
     color: var(--color-text-muted);
-    line-height: 1.5;
+    line-height: var(--line-height-content, 1.5);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-
-.contribution-image {
-    width: 240px;
-    height: 120px;
-    border-radius: 6px;
-    border: 1px solid var(--color-border);
-    flex-shrink: 0;
-    align-self: center;
-    object-fit: cover;
+    text-overflow: ellipsis;
 }
 
 .pr-icon {
@@ -107,9 +110,9 @@
 }
 
 .error-message {
-    font-size: 1rem;
+    font-size: var(--font-size-content, 1rem);
     color: var(--color-text-muted);
-    line-height: 1.5;
+    line-height: var(--line-height-content, 1.5);
 }
 
 @media (max-width: 768px) {
@@ -133,6 +136,45 @@
 :root[data-theme="dark"] .contribution-item:hover {
     background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .contribution-item {
+        border-width: 2px;
+    }
+    
+    .contribution-title {
+        font-weight: 700;
+    }
+}
+
+/* Focus management for keyboard navigation */
+.contribution-item:focus {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.contribution-item:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Improve image loading performance */
+.contribution-image {
+    width: 240px;
+    height: 120px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    flex-shrink: 0;
+    align-self: center;
+    object-fit: cover;
+    background-color: var(--color-bg-secondary);
+    transition: opacity 0.2s ease;
+}
+
+.contribution-image[src=""],
+.contribution-image:not([src]) {
+    opacity: 0;
 }
 </style>
 
@@ -192,7 +234,7 @@ function createPrElement(pr) {
             </div>
             ${description ? `<div class="contribution-description">${escapeHtml(description)}</div>` : ''}
         </div>
-        <img src="${pr.og_image}" alt="" class="contribution-image" loading="lazy">
+        <img src="${pr.og_image}" alt="Repository preview" class="contribution-image" loading="lazy" onerror="this.style.opacity='0'">
     </a>
     `;
 }
