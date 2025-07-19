@@ -1,0 +1,141 @@
+{{ define "main" }}
+<div class="page">
+    <div class="page-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+    </div>
+    
+    <div class="search-form-container">
+        <form action="/search" method="GET" class="search-form">
+            <input type="search" name="q" id="search-query" placeholder="検索キーワードを入力..." class="search-input">
+            <button type="submit" class="search-button">検索</button>
+        </form>
+    </div>
+    
+    <div id="search-results" class="search-results"></div>
+    <div class="search-loading" style="display: none;">検索中...</div>
+    
+    <script src="/js/search.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"
+        integrity="sha512-Nqw1tH3mpavka9cQCc5zWWEZNfIPdOYyQFjlV1NvflEtQ0/XI6ZQ+H/D3YgJdqSUJlMLAPRj/oXlaHCFbFCjoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"
+        integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}" class="search-result-item">
+        <h3 class="search-result-title"><a href="${link}">${title}</a></h3>
+        <p class="search-result-snippet">${snippet}</p>
+        <div class="search-result-meta">
+            ${ isset tags }<span class="search-result-tags">タグ: ${tags}</span>${ end }
+        </div>
+    </div>
+    </script>
+</div>
+
+<style>
+.search-form-container {
+    margin: 2rem 0;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 600px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.search-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background: var(--color-accent-alt);
+}
+
+.search-results {
+    margin-top: 2rem;
+}
+
+.search-result-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.search-result-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.search-result-title a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.search-result-title a:hover {
+    color: var(--color-accent);
+}
+
+.search-result-snippet {
+    margin: 0.5rem 0;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.search-result-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+.search-result-tags a {
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.search-result-tags a:hover {
+    text-decoration: underline;
+}
+
+.search-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-muted);
+}
+
+.search-results-empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-muted);
+}
+
+mark {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+}
+</style>
+{{ end }}
