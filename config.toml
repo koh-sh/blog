@@ -3,6 +3,7 @@ title = "koh's blog"
 hasCJKLanguage = true
 summaryLength = 80
 languageCode = "ja"
+enableRobotsTXT = true
 
 [menu]
   [[menu.main]]
