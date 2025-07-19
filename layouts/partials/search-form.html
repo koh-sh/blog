@@ -1,0 +1,42 @@
+<form action="/search" method="GET" class="search-form">
+    <input type="search" name="q" id="search-query" placeholder="検索..." class="search-input">
+    <button type="submit" class="search-button">検索</button>
+</form>
+
+<style>
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.875rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.search-button {
+    padding: 0.5rem 1rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    opacity: 0.8;
+}
+</style>
