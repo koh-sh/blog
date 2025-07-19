@@ -39,6 +39,9 @@ languageCode = "ja"
   showBorder = false
   showReadTime = true
   
+  # Custom CSS files (loaded after theme CSS)
+  customCss = ["css/custom-text-sizes.css"]
+  
   [[params.socialIcons]]
     icon = "fab fa-github"
     title = "GitHub"

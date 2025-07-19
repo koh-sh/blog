@@ -1,0 +1,34 @@
+/* Force larger text sizes with maximum specificity */
+
+/* Post meta information */
+article.post .post-meta,
+article.post .post-meta .post-meta-item,
+article.post .post-meta time {
+    font-size: 1.8rem !important;
+}
+
+/* Contributes page text sizes */
+.contribution-item .contribution-main .contribution-header .contribution-content .contribution-title {
+    font-size: 2rem !important;
+}
+
+.contribution-item .contribution-main .contribution-header .contribution-content .contribution-meta {
+    font-size: 1.8rem !important;
+}
+
+.contribution-item .contribution-main .contribution-description {
+    font-size: 1.8rem !important;
+}
+
+/* Universal fallback for any missed elements */
+.post-meta * {
+    font-size: 1.8rem !important;
+}
+
+.contribution-meta * {
+    font-size: 1.8rem !important;
+}
+
+.contribution-description * {
+    font-size: 1.8rem !important;
+}
