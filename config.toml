@@ -21,11 +21,6 @@ languageCode = "ja"
     url = "/tags/"
     weight = 200
   [[menu.main]]
-    identifier = "search"
-    name = "Search"
-    url = "/search/"
-    weight = 250
-  [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
@@ -68,4 +63,4 @@ languageCode = "ja"
   path = 'github.com/lxndrblz/anatole'
 
 [pagination]
-pagerSize = 4
+pagerSize = 3
