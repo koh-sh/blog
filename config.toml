@@ -1,44 +1,50 @@
 baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
-theme = "github.com/vaga/hugo-theme-m10c"
 hasCJKLanguage = true
 summaryLength = 150
+languageCode = "ja"
 
 [menu]
   [[menu.main]]
     identifier = "home"
     name = "Home"
     url = "/"
-    weight = 1
+    weight = 100
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
-    weight = 2
+    weight = 200
   [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
-    weight = 3
+    weight = 300
 
 [params]
+  title = "I'm koh-sh"
   author = "koh-sh"
   description = "I'm an SRE who previously worked as a system administrator and infrastructure engineer."
-  menu_item_separator = " - "
-  avatar = "avatar.avif"
+  profilePicture = "avatar.avif"
   images = ["avatar.png"]  # OGP default image
-  truncateLength = 200
-  [[params.social]]
-    icon = "brand-github"
-    name = "GitHub"
+  
+  # Anatole specific settings
+  displayMode = "auto"  # auto, dark, light
+  doNotLoadAnimations = false
+  showBorder = false
+  showReadTime = true
+  
+  [[params.socialIcons]]
+    icon = "fab fa-github"
+    title = "GitHub"
     url = "https://github.com/koh-sh"
-  [[params.social]]
-    icon = "twitter"
-    name = "Twitter"
+  [[params.socialIcons]]
+    icon = "fab fa-twitter"
+    title = "Twitter"
     url = "https://twitter.com/koh_sh"
-  [[params.social]]
-    icon = "brand-zenn"
-    name = "Zenn"
+  [[params.socialIcons]]
+    icon = "fab fa-dev"
+    title = "Zenn"
     url = "https://zenn.dev/koh_sh"
 
 [outputs]
@@ -46,7 +52,7 @@ summaryLength = 150
 
 [module]
 [[module.imports]]
-  path = 'github.com/vaga/hugo-theme-m10c'
+  path = 'github.com/lxndrblz/anatole'
 
 [pagination]
 pagerSize = 5
