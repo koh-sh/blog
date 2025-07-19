@@ -6,13 +6,13 @@
     
     <div class="search-form-container">
         <form action="/search" method="GET" class="search-form">
-            <input type="search" name="q" id="search-query" placeholder="検索キーワードを入力..." class="search-input">
-            <button type="submit" class="search-button">検索</button>
+            <input type="search" name="q" id="search-query" placeholder="Enter search keywords..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
         </form>
     </div>
     
     <div id="search-results" class="search-results"></div>
-    <div class="search-loading" style="display: none;">検索中...</div>
+    <div class="search-loading" style="display: none;">Searching...</div>
     
     <script src="/js/search.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"
@@ -27,7 +27,7 @@
         <h3 class="search-result-title"><a href="${link}">${title}</a></h3>
         <p class="search-result-snippet">${snippet}</p>
         <div class="search-result-meta">
-            ${ isset tags }<span class="search-result-tags">タグ: ${tags}</span>${ end }
+            ${ isset tags }<span class="search-result-tags">Tags: ${tags}</span>${ end }
         </div>
     </div>
     </script>
