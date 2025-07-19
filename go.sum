@@ -1,4 +1,2 @@
-github.com/vaga/hugo-theme-m10c v0.0.0-20241019113302-8295ee808a81 h1:92BnYsVq4d2MBkgBYYPt+pMOVT7ZgC/hWrwy3B09K2k=
-github.com/vaga/hugo-theme-m10c v0.0.0-20241019113302-8295ee808a81/go.mod h1:3196jMGTXhINTYZ+dXuDt53xvUQovqOj67kuczeXsjU=
-github.com/vaga/hugo-theme-m10c v0.0.0-20250123151439-862c6e941be9 h1:Gqw9frHW9DdWklGN6gVuZSpecN84gYhf3fs/AiCRLgI=
-github.com/vaga/hugo-theme-m10c v0.0.0-20250123151439-862c6e941be9/go.mod h1:3196jMGTXhINTYZ+dXuDt53xvUQovqOj67kuczeXsjU=
+github.com/lxndrblz/anatole v1.17.1 h1:mvAWo1EnEVK8JNbKvkixigLdPcOHIs3nQzFeVhsnnfo=
+github.com/lxndrblz/anatole v1.17.1/go.mod h1:hy61SRyUDKaWw2P+cERt9UPde5guWyVKgtjdzRF5bfI=

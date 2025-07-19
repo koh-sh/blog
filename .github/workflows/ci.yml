@@ -32,5 +32,8 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Setup Dart Sass
+        uses: dw-labs-org/dart-sass-gha@v1
+
       - name: Build Hugo site
         run: hugo --minify

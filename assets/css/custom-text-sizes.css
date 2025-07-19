@@ -1,0 +1,56 @@
+:root {
+  /* Custom font size variables for accessibility and consistency */
+  --font-size-meta: 1.6rem;
+  --font-size-title: 1.8rem;
+  --font-size-content: 1.6rem;
+  --line-height-content: 1.5;
+  --line-height-title: 1.4;
+}
+
+/* Responsive font sizes for better accessibility */
+@media (min-width: 768px) {
+  :root {
+    --font-size-meta: 1.8rem;
+    --font-size-title: 2rem;
+    --font-size-content: 1.8rem;
+  }
+}
+
+/* Post meta information - reduced specificity */
+.post-meta {
+  font-size: var(--font-size-meta);
+}
+
+.post-meta-item {
+  font-size: var(--font-size-meta);
+}
+
+/* Contribution page styling - more specific but cleaner */
+.contribution-title {
+  font-size: var(--font-size-title);
+  line-height: var(--line-height-title);
+}
+
+.contribution-meta {
+  font-size: var(--font-size-meta);
+  line-height: var(--line-height-content);
+}
+
+.contribution-description {
+  font-size: var(--font-size-content);
+  line-height: var(--line-height-content);
+}
+
+/* Ensure text remains readable and scalable */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .contribution-item {
+    border-width: 2px;
+  }
+}
