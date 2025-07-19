@@ -1,6 +1,3 @@
-{{- $imgCSS := resources.Get "css/components/img.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $imgCSS.RelPermalink }}" integrity="{{ $imgCSS.Data.Integrity }}">
-
 {{ $alt := .Get "alt" }}
 {{ $src := .Get "src" }}
 {{ $height := .Get "height" }}
