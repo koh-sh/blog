@@ -1,19 +1,7 @@
+{{- $imgCSS := resources.Get "css/components/img.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $imgCSS.RelPermalink }}" integrity="{{ $imgCSS.Data.Integrity }}">
+
 {{ $alt := .Get "alt" }}
 {{ $src := .Get "src" }}
 {{ $height := .Get "height" }}
 <img alt="{{ $alt }}" src="{{ $src }}" {{ with $height }}height="{{ . }}"{{ end }} class="content-image" loading="lazy" />
-
-<style>
-.content-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 1rem 0;
-    display: block;
-}
-
-:root[data-theme="dark"] .content-image {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-</style>
