@@ -1,7 +1,7 @@
 baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 hasCJKLanguage = true
-summaryLength = 150
+summaryLength = 80
 languageCode = "ja"
 
 [menu]
@@ -15,6 +15,11 @@ languageCode = "ja"
     name = "Tags"
     url = "/tags/"
     weight = 200
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 250
   [[menu.main]]
     identifier = "about"
     name = "About"
@@ -43,7 +48,7 @@ languageCode = "ja"
     title = "Twitter"
     url = "https://twitter.com/koh_sh"
   [[params.socialIcons]]
-    icon = "fab fa-dev"
+    icon = "fas fa-link"
     title = "Zenn"
     url = "https://zenn.dev/koh_sh"
 

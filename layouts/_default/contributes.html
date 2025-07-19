@@ -57,13 +57,13 @@
 }
 
 .contribution-meta {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;
 }
 
 .contribution-description {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--color-text-muted);
     line-height: 1.5;
     display: -webkit-box;
@@ -154,7 +154,11 @@ function getDescription(markdown, maxLength = MAX_DESCRIPTION_LENGTH) {
 }
 
 function formatDate(dateString) {
-    return new Date(dateString).toLocaleDateString('ja-JP');
+    return new Date(dateString).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
 }
 
 function escapeHtml(unsafe) {
@@ -182,7 +186,7 @@ function createPrElement(pr) {
                 <div class="contribution-content">
                     <h3 class="contribution-title">${escapeHtml(pr.title)}</h3>
                     <div class="contribution-meta">
-                        ${repoFullName} • マージ日: ${mergedDate}
+                        ${repoFullName} • Merged on ${mergedDate}
                     </div>
                 </div>
             </div>
