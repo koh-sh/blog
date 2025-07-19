@@ -11,6 +11,11 @@ languageCode = "ja"
     url = "/"
     weight = 100
   [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 150
+  [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
@@ -27,7 +32,7 @@ languageCode = "ja"
     weight = 300
 
 [params]
-  title = "I'm koh-sh"
+  title = "koh's blog"
   author = "koh-sh"
   description = "I'm an SRE who previously worked as a system administrator and infrastructure engineer."
   profilePicture = "avatar.avif"
@@ -63,4 +68,4 @@ languageCode = "ja"
   path = 'github.com/lxndrblz/anatole'
 
 [pagination]
-pagerSize = 5
+pagerSize = 4

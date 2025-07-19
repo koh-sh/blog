@@ -16,11 +16,11 @@ draft: false
 
 ## 📊 Stats
 
-{{< img src="https://github-readme-stats.vercel.app/api?username=koh-sh&theme=vue-dark&layout=compact" alt="GitHub Stats" height="170" >}}
-{{< img src="https://github-readme-stats.vercel.app/api/top-langs/?username=koh-sh&theme=vue-dark&layout=compact" alt="Most Used Languages" height="170" >}}
+{{< img src="https://github-readme-stats.vercel.app/api?username=koh-sh&theme=transparent&layout=compact" alt="GitHub Stats" height="170" >}}
+{{< img src="https://github-readme-stats.vercel.app/api/top-langs/?username=koh-sh&theme=transparent&layout=compact" alt="Most Used Languages" height="170" >}}
 
 [My OSS contributions](/contributes)
 
 ## 🔨 Skills
 
-{{< img src="https://skillicons.dev/icons?theme=dark&perline=6&i=go,python,bash,linux,docker,kubernetes,terraform,ansible,aws,git,github,githubactions" alt="my skills" height="100" >}}
+{{< img src="https://skillicons.dev/icons?theme=light&perline=6&i=go,python,bash,linux,docker,kubernetes,terraform,ansible,aws,git,github,githubactions" alt="my skills" height="100" >}}
