@@ -1,6 +1,4 @@
 {{ define "main" }}
-{{- $postCSS := resources.Get "css/components/post.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $postCSS.RelPermalink }}" integrity="{{ $postCSS.Data.Integrity }}">
 
 <article class="post">
     <header class="post-header">
@@ -28,7 +26,7 @@
         {{- end }}
     </header>
     
-    <div class="post-content">
+    <div class="post__content">
         {{ .Content }}
     </div>
     

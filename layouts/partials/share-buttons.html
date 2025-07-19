@@ -1,6 +1,4 @@
 {{ if ne .Title "About" }}
-{{- $shareCSS := resources.Get "css/components/share-buttons.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $shareCSS.RelPermalink }}" integrity="{{ $shareCSS.Data.Integrity }}">
 
 <div class="share-buttons">
     <span class="share-label">Share on:</span>

@@ -40,8 +40,8 @@ enableRobotsTXT = true
   showBorder = false
   showReadTime = true
   
-  # Custom CSS files (loaded after theme CSS)
-  customCss = ["css/custom-text-sizes.css"]
+  
+  
   
   [[params.socialIcons]]
     icon = "fab fa-github"
@@ -55,6 +55,11 @@ enableRobotsTXT = true
     icon = "fas fa-link"
     title = "Zenn"
     url = "https://zenn.dev/koh_sh"
+
+# Syntax highlighting
+pygmentsUseClasses = true   
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
 
 [outputs]
     home = ["HTML", "RSS", "JSON"]
