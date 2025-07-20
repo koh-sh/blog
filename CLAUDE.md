@@ -41,7 +41,7 @@ This is a Hugo-based blog hosted at <https://blog.koh-sh.com>, deployed via Clou
 ### Hugo Site Structure
 
 - `content/posts/` - Blog posts in Markdown format
-- `layouts/` - Hugo template overrides for the m10c theme
+- `layouts/` - Hugo template overrides for the anatole theme
 - `static/` - Static assets (images, CSS, JS)
 - `config.toml` - Hugo configuration with theme settings and social links
 - `archetypes/default.md` - Template for new posts
@@ -56,7 +56,9 @@ This is a Hugo-based blog hosted at <https://blog.koh-sh.com>, deployed via Clou
 
 - ESLint configuration with TypeScript rules
 - TypeScript configured for ES2020 with DOM types
+- Textlint with Japanese technical writing presets for content quality
 - Utility script for automated screenshot conversion
+- GitHub Actions CI/CD pipeline for automated testing and building
 
 ## Key Features
 
@@ -81,7 +83,7 @@ The `/functions/github-contributions.ts` endpoint:
 
 ### Theme and Styling
 
-- Uses hugo-theme-m10c as base theme
+- Uses anatole theme via Hugo modules
 - Custom layouts in `layouts/` directory override theme defaults
 - Static assets in `static/` supplement theme resources
 - Responsive design with CJK language support
@@ -107,3 +109,23 @@ The `/functions/github-contributions.ts` endpoint:
 - Images stored in `static/images/[post-name]/` directories
 - AVIF format preferred for optimal performance
 - Use `make ss` workflow for consistent image management
+- Content should pass textlint checks for Japanese technical writing standards
+
+## CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+The `.github/workflows/ci.yml` automatically runs on push and PR:
+
+1. **Code Quality Checks**
+   - ESLint for TypeScript files
+   - TypeScript type checking
+
+2. **Build Verification**
+   - Hugo site build with minification
+   - Dart Sass compilation
+
+### Automated Dependencies
+
+- Dependabot configured for npm, Go modules, and GitHub Actions updates
+- Weekly automated dependency updates via PRs
