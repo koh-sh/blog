@@ -1,0 +1,65 @@
+/* Text wrapping fixes for post content only */
+
+/* Apply URL wrapping specifically to post content areas */
+.post__content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+}
+
+/* Apply wrapping to headings that might contain long error messages */
+.post__content h1,
+.post__content h2,
+.post__content h3,
+.post__content h4,
+.post__content h5,
+.post__content h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.post__content a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* More aggressive breaking for long URLs */
+.post__content a[href*="://"] {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Mobile-specific URL handling */
+@media (max-width: 768px) {
+    .post__content a[href*="://"] {
+        line-height: 1.5;
+        word-break: break-all;
+    }
+}
+
+/* Preserve pre-formatted code block behavior but allow inline code to wrap */
+.post__content pre {
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.post__content pre code {
+    word-break: normal;
+    overflow-wrap: normal;
+    white-space: pre;
+}
+
+/* Allow inline code to wrap when it contains long paths or URLs */
+.post__content code:not(pre code) {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+}

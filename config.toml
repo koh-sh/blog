@@ -40,6 +40,9 @@ enableRobotsTXT = true
   showBorder = false
   showReadTime = true
   
+  # Custom CSS files for targeted fixes
+  customCss = ["css/contributions.css", "css/text-wrapping.css"]
+  
   
   
   
