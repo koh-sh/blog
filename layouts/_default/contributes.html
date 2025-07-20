@@ -1,5 +1,6 @@
 {{ define "main" }}
-{{- $contributionsCSS := resources.Get "css/components/contributions.css" | resources.Minify }}
+
+{{- $contributionsCSS := resources.Get "css/contributions.css" | resources.Minify }}
 <link rel="stylesheet" href="{{ $contributionsCSS.RelPermalink }}" integrity="{{ $contributionsCSS.Data.Integrity }}">
 
 {{- $contributionsJS := resources.Get "js/contributions.js" | resources.Minify }}

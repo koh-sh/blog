@@ -40,8 +40,11 @@ enableRobotsTXT = true
   showBorder = false
   showReadTime = true
   
-  # Custom CSS files (loaded after theme CSS)
-  customCss = ["css/custom-text-sizes.css"]
+  # Custom CSS files for targeted fixes
+  customCss = ["css/contributions.css", "css/text-wrapping.css"]
+  
+  
+  
   
   [[params.socialIcons]]
     icon = "fab fa-github"
@@ -56,8 +59,13 @@ enableRobotsTXT = true
     title = "Zenn"
     url = "https://zenn.dev/koh_sh"
 
+# Syntax highlighting
+pygmentsUseClasses = true   
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+
 [outputs]
-    home = ["HTML", "RSS", "JSON"]
+    home = ["HTML", "RSS"]
 
 [markup]
   [markup.goldmark]
