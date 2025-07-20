@@ -1,0 +1,238 @@
+/* Contributions page styles - Fixed for Anatole theme */
+.contributions-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Base contribution item styles */
+.contribution-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* Light theme styles */
+html.theme--light .contribution-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+    color: #333 !important;
+}
+
+html.theme--light .contribution-item:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    border: 1px solid rgba(99, 102, 241, 0.3) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+/* Dark theme styles */
+html.theme--dark .contribution-item {
+    background: rgba(26, 26, 26, 0.9) !important;
+    border: 1px solid rgba(51, 51, 51, 0.4) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) !important;
+    color: #fff !important;
+}
+
+html.theme--dark .contribution-item:hover {
+    background: rgba(42, 42, 42, 0.95) !important;
+    border: 1px solid rgba(99, 102, 241, 0.5) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-2px);
+}
+
+.contribution-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.contribution-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 0.875rem;
+}
+
+.pr-icon {
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0;
+    fill: #6366f1 !important;
+    margin-top: 0.125rem;
+}
+
+.contribution-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Title styles with increased size - using px for guaranteed size */
+.contribution-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.5rem 0 !important;
+    line-height: 1.4 !important;
+}
+
+html.theme--light .contribution-title {
+    color: #1a1a1a !important;
+}
+
+html.theme--dark .contribution-title {
+    color: #ffffff !important;
+}
+
+/* Meta information styles with increased size - using px for guaranteed size */
+.contribution-meta {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+html.theme--light .contribution-meta {
+    color: #666666 !important;
+}
+
+html.theme--dark .contribution-meta {
+    color: #a0a0a0 !important;
+}
+
+/* Description styles with increased size - using px for guaranteed size */
+.contribution-description {
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    margin-top: 0.875rem !important;
+}
+
+html.theme--light .contribution-description {
+    color: #555555 !important;
+}
+
+html.theme--dark .contribution-description {
+    color: #c0c0c0 !important;
+}
+
+/* Image styles */
+.contribution-image {
+    width: 160px !important;
+    height: 80px !important;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+html.theme--light .contribution-image {
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html.theme--dark .contribution-image {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Error states */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.error-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 1rem;
+}
+
+html.theme--light .error-icon {
+    fill: #666666 !important;
+}
+
+html.theme--dark .error-icon {
+    fill: #a0a0a0 !important;
+}
+
+.error-message {
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+}
+
+html.theme--light .error-message {
+    color: #666666 !important;
+}
+
+html.theme--dark .error-message {
+    color: #a0a0a0 !important;
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+    .contribution-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem !important;
+        padding: 1.25rem !important;
+    }
+    
+    .contribution-image {
+        width: 100% !important;
+        height: 160px !important;
+        order: -1;
+    }
+    
+    .contribution-header {
+        gap: 0.75rem !important;
+    }
+    
+    .pr-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    .contribution-title {
+        font-size: 18px !important;
+    }
+    
+    .contribution-meta {
+        font-size: 15px !important;
+    }
+    
+    .contribution-description {
+        font-size: 16px !important;
+    }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+    .contributions-content {
+        gap: 1rem !important;
+    }
+    
+    .contribution-item {
+        padding: 1rem !important;
+    }
+    
+    .contribution-title {
+        font-size: 17px !important;
+    }
+    
+    .contribution-meta {
+        font-size: 14px !important;
+    }
+    
+    .contribution-description {
+        font-size: 15px !important;
+    }
+    
+    .error-message {
+        font-size: 16px !important;
+    }
+}
