@@ -2,7 +2,8 @@ baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 hasCJKLanguage = true
 summaryLength = 80
-languageCode = "ja"
+languageCode = "en"
+defaultContentLanguage = "en"
 enableRobotsTXT = true
 
 [menu]
@@ -33,6 +34,8 @@ enableRobotsTXT = true
   description = "I'm an SRE who previously worked as a system administrator and infrastructure engineer."
   profilePicture = "avatar.avif"
   images = ["avatar.png"]  # OGP default image
+  mainSections = ["posts"]
+  postSectionName = "posts"
   
   # Anatole specific settings
   displayMode = "auto"  # auto, dark, light
