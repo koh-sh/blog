@@ -1,0 +1,23 @@
+/* Stats section layout fixes for about page */
+
+/* Flex layout for stats images - vertical stack, left-aligned */
+.stats-images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.stats-images .content-image {
+    display: block;
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .stats-images .content-image {
+        max-width: 100%;
+    }
+}

@@ -44,7 +44,7 @@ enableRobotsTXT = true
   showReadTime = true
   
   # Custom CSS files for targeted fixes
-  customCss = ["css/contributions.css", "css/text-wrapping.css"]
+  customCss = ["css/contributions.css", "css/text-wrapping.css", "css/about-stats.css"]
   
   
   
