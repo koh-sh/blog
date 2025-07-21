@@ -1,0 +1,3 @@
+reading_time:
+  one: "One-minute read"
+  other: "{{ .Count }}-minute read"

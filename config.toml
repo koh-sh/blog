@@ -2,8 +2,8 @@ baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 hasCJKLanguage = true
 summaryLength = 80
-languageCode = "en"
-defaultContentLanguage = "en"
+languageCode = "ja"
+defaultContentLanguage = "ja"
 enableRobotsTXT = true
 
 [menu]
@@ -44,10 +44,7 @@ enableRobotsTXT = true
   showReadTime = true
   
   # Custom CSS files for targeted fixes
-  customCss = ["css/contributions.css", "css/text-wrapping.css", "css/about-stats.css"]
-  
-  
-  
+  customCss = ["css/contributions.css", "css/text-wrapping.css", "css/about.css"]
   
   [[params.socialIcons]]
     icon = "fab fa-github"
@@ -62,18 +59,18 @@ enableRobotsTXT = true
     title = "Zenn"
     url = "https://zenn.dev/koh_sh"
 
-# Syntax highlighting
-pygmentsUseClasses = true   
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-
 [outputs]
     home = ["HTML", "RSS"]
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = false
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
 
 [module]
 [[module.imports]]

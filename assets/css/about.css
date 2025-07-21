@@ -15,6 +15,18 @@
     height: auto;
 }
 
+/* Skills section - left align skills icons */
+.content-image {
+    display: block;
+    margin: 0 auto 0 0 !important;
+    text-align: left !important;
+}
+
+/* Target the paragraph containing skills image specifically */
+.post__content p:has(img[alt="my skills"]) {
+    text-align: left !important;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .stats-images .content-image {
