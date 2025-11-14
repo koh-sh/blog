@@ -9,15 +9,15 @@
         "ci": "npm run lint && npm run type-check"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^8.46.2",
+        "@typescript-eslint/eslint-plugin": "^8.46.3",
         "@typescript-eslint/parser": "^8.31.0",
-        "eslint": "^9.38.0",
+        "eslint": "^9.39.1",
         "typescript": "^5.9.3"
     },
     "dependencies": {
         "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",
         "textlint": "^15.2.3",
         "textlint-rule-preset-ja-technical-writing": "^12.0.2",
-        "wrangler": "^4.45.0"
+        "wrangler": "^4.46.0"
     }
 }
