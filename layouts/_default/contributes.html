@@ -6,10 +6,10 @@
 {{- $contributionsJS := resources.Get "js/contributions.js" | resources.Minify }}
 <script src="{{ $contributionsJS.RelPermalink }}" integrity="{{ $contributionsJS.Data.Integrity }}" defer></script>
 
-<div class="page">
-    <div class="page-header">
-        <h1 class="page-title">{{ .Title }}</h1>
+<div class="post">
+    <div class="post__content">
+        <h1>{{ .Title }}</h1>
+        <div id="contributions-list" class="contributions-content"></div>
     </div>
-    <div id="contributions-list" class="contributions-content"></div>
 </div>
 {{ end }}

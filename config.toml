@@ -23,14 +23,14 @@ enableRobotsTXT = true
     url = "/tags/"
     weight = 200
   [[menu.main]]
-    identifier = "contributions"
-    name = "Contributions"
-    url = "/contributes/"
-    weight = 250
-  [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
+    weight = 250
+  [[menu.main]]
+    identifier = "contributions"
+    name = "Contributions"
+    url = "/contributes/"
     weight = 300
 
 [params]
