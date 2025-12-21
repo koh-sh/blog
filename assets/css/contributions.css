@@ -13,7 +13,9 @@
     align-items: stretch;
     gap: 1rem;
     padding: 1rem;
-    padding-left: 260px;
+    padding-left: 280px;
+    padding-bottom: 0.5rem;
+    min-height: 130px;
     border-radius: 10px;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -63,10 +65,10 @@ html.theme--dark .contribution-item:hover {
 }
 
 .pr-icon {
-    width: 20px !important;
-    height: 20px !important;
+    width: 24px !important;
+    height: 24px !important;
     flex-shrink: 0;
-    margin-top: 0.125rem;
+    margin-top: 0.15rem;
 }
 
 .pr-icon.pr-merged {
@@ -100,32 +102,34 @@ html.theme--dark .contribution-title {
 
 /* Meta information styles with increased size - using px for guaranteed size */
 .contribution-meta {
-    font-size: 16px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
     line-height: 1.4 !important;
     margin-bottom: 0.5rem !important;
 }
 
 html.theme--light .contribution-meta {
-    color: #666666 !important;
+    color: #444444 !important;
 }
 
 html.theme--dark .contribution-meta {
-    color: #a0a0a0 !important;
+    color: #d0d0d0 !important;
 }
 
-/* Description styles with increased size - using px for guaranteed size */
+/* Description styles - subdued appearance */
 .contribution-description {
-    font-size: 17px !important;
+    font-size: 14px !important;
     line-height: 1.5 !important;
     margin-top: 0.5rem !important;
+    margin-left: calc(24px + 0.75rem) !important;
 }
 
 html.theme--light .contribution-description {
-    color: #555555 !important;
+    color: #777777 !important;
 }
 
 html.theme--dark .contribution-description {
-    color: #c0c0c0 !important;
+    color: #999999 !important;
 }
 
 /* Image styles */
@@ -133,9 +137,8 @@ html.theme--dark .contribution-description {
     position: absolute;
     left: 1rem;
     top: 1rem;
-    bottom: 1rem;
     width: 240px !important;
-    height: calc(100% - 2rem) !important;
+    height: 120px !important;
     object-fit: cover;
     border-radius: 8px;
 }
