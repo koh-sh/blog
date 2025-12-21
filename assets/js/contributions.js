@@ -35,20 +35,24 @@ function escapeHtml(unsafe) {
 
 function createPrElement(pr) {
     const repoFullName = pr.repo_name;
-    const mergedDate = pr.closed_at ? formatDate(pr.closed_at) : 'Unknown';
+    const isOpen = pr.state === 'open';
+    const dateLabel = isOpen ? 'Created on' : 'Merged on';
+    const dateValue = isOpen ? pr.created_at : pr.closed_at;
+    const formattedDate = dateValue ? formatDate(dateValue) : 'Unknown';
     const description = getDescription(pr.body);
+    const stateClass = isOpen ? 'pr-open' : 'pr-merged';
 
     return `
     <a href="${pr.html_url}" class="contribution-item" target="_blank" rel="noopener">
         <div class="contribution-main">
             <div class="contribution-header">
-                <svg class="pr-icon" viewBox="0 0 16 16">
+                <svg class="pr-icon ${stateClass}" viewBox="0 0 16 16">
                     <path d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"/>
                 </svg>
                 <div class="contribution-content">
                     <h3 class="contribution-title">${escapeHtml(pr.title)}</h3>
                     <div class="contribution-meta">
-                        ${repoFullName} • Merged on ${mergedDate}
+                        ${repoFullName} • ${dateLabel} ${formattedDate}
                     </div>
                 </div>
             </div>

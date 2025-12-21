@@ -3,7 +3,8 @@ interface GitHubPR {
     title: string;
     body: string | null;
     html_url: string;
-    closed_at: string;
+    closed_at: string | null;
+    created_at: string;
     repository_url: string;
     number: number;
 }
@@ -17,9 +18,11 @@ interface PRData {
     title: string;
     body: string | null;
     html_url: string;
-    closed_at: string;
+    closed_at: string | null;
+    created_at: string;
     repo_name: string;
     og_image: string;
+    state: 'merged' | 'open';
 }
 
 // Configuration constants
@@ -40,9 +43,10 @@ const CONFIG = {
   }
 } as const;
 
-// Build GitHub search query with specified parameters
-const buildGitHubSearchQuery = (account: string): string => {
-  return `is:pr archived:false is:merged is:public author:${account} -user:${account}`;
+// Build GitHub search query with specified state
+const buildGitHubSearchQuery = (account: string, state: 'merged' | 'open'): string => {
+  const stateFilter = state === 'merged' ? 'is:merged' : 'is:open';
+  return `is:pr archived:false ${stateFilter} is:public author:${account} -user:${account}`;
 };
 
 // Construct the full search URL for GitHub API
@@ -56,15 +60,17 @@ const isAllowedOrigin = (origin: string | null): boolean => {
 };
 
 // Transform GitHub PR data into our internal format
-const buildPrData = (item: GitHubPR): PRData => {
+const buildPrData = (item: GitHubPR, state: 'merged' | 'open'): PRData => {
   const repoPath = item.repository_url.split('/repos/')[1];
   return {
     title: item.title,
     body: item.body,
     html_url: item.html_url,
     closed_at: item.closed_at,
+    created_at: item.created_at,
     repo_name: repoPath,
-    og_image: `https://opengraph.githubassets.com/1/${repoPath}/pull/${item.number}`
+    og_image: `https://opengraph.githubassets.com/1/${repoPath}/pull/${item.number}`,
+    state
   };
 };
 
@@ -103,10 +109,10 @@ class APIError extends Error {
   }
 }
 
-// Fetch and process GitHub PR data
-const fetchGitHubPRs = async (): Promise<GitHubSearchResponse> => {
+// Fetch GitHub PRs for a specific state
+const fetchGitHubPRsByState = async (state: 'merged' | 'open'): Promise<PRData[]> => {
   const searchResponse = await fetch(
-    buildSearchUrl(buildGitHubSearchQuery(CONFIG.github.account)),
+    buildSearchUrl(buildGitHubSearchQuery(CONFIG.github.account, state)),
     {
       headers: {
         'Accept': CONFIG.github.apiVersion,
@@ -122,7 +128,8 @@ const fetchGitHubPRs = async (): Promise<GitHubSearchResponse> => {
     );
   }
 
-  return searchResponse.json();
+  const data: GitHubSearchResponse = await searchResponse.json();
+  return data.items.map(item => buildPrData(item, state));
 };
 
 // Main request handler for Cloudflare Workers
@@ -130,11 +137,13 @@ export async function onRequest(context: RequestContext): Promise<Response> {
   const origin = context.request.headers.get('Origin');
 
   try {
-    const data = await fetchGitHubPRs();
-    const prs = data.items.map(buildPrData);
+    const [mergedPRs, openPRs] = await Promise.all([
+      fetchGitHubPRsByState('merged'),
+      fetchGitHubPRsByState('open')
+    ]);
 
     return new Response(
-      JSON.stringify(prs),
+      JSON.stringify([...openPRs, ...mergedPRs]),
       { headers: getResponseHeaders(origin) }
     );
   } catch (error) {

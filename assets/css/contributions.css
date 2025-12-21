@@ -64,8 +64,15 @@ html.theme--dark .contribution-item:hover {
     width: 20px !important;
     height: 20px !important;
     flex-shrink: 0;
-    fill: #6366f1 !important;
     margin-top: 0.125rem;
+}
+
+.pr-icon.pr-merged {
+    fill: #8250df !important;
+}
+
+.pr-icon.pr-open {
+    fill: #238636 !important;
 }
 
 .contribution-content {

@@ -18,8 +18,6 @@ draft: false
 
 {{< stats >}}
 
-[My OSS contributions](/contributes)
-
 ## 🔨 Skills
 
 {{< skills >}}
