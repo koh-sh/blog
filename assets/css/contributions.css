@@ -10,9 +10,10 @@
 /* Base contribution item styles */
 .contribution-item {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1rem;
     padding: 1rem;
+    padding-left: 260px;
     border-radius: 10px;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -129,11 +130,14 @@ html.theme--dark .contribution-description {
 
 /* Image styles */
 .contribution-image {
-    width: 160px !important;
-    height: 80px !important;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    bottom: 1rem;
+    width: 240px !important;
+    height: calc(100% - 2rem) !important;
     object-fit: cover;
     border-radius: 8px;
-    flex-shrink: 0;
 }
 
 html.theme--light .contribution-image {
@@ -188,11 +192,15 @@ html.theme--dark .error-message {
         align-items: stretch;
         gap: 1rem !important;
         padding: 1.25rem !important;
+        padding-left: 1.25rem !important;
     }
-    
+
     .contribution-image {
+        position: static;
         width: 100% !important;
-        height: 160px !important;
+        height: auto !important;
+        object-fit: contain !important;
+        border-radius: 8px !important;
         order: -1;
     }
     
