@@ -9,7 +9,7 @@
         "ci": "npm run lint && npm run type-check"
     },
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^8.49.0",
+        "@typescript-eslint/eslint-plugin": "^8.50.0",
         "@typescript-eslint/parser": "^8.31.0",
         "eslint": "^9.39.2",
         "typescript": "^5.9.3"
