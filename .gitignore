@@ -23,3 +23,5 @@ yarn-error.log*
 
 # OS generated files
 Thumbs.db
+
+.playwright-mcp
