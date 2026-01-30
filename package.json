@@ -16,8 +16,8 @@
     },
     "dependencies": {
         "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",
-        "textlint": "^15.5.0",
+        "textlint": "^15.5.1",
         "textlint-rule-preset-ja-technical-writing": "^12.0.2",
-        "wrangler": "^4.58.0"
+        "wrangler": "^4.60.0"
     }
 }
