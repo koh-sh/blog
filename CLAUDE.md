@@ -10,41 +10,48 @@ This is a Hugo-based blog hosted at <https://blog.koh-sh.com>, deployed via Clou
 
 ### Development
 
-- `make dev` - Start development environment (Hugo server + Wrangler dev + auto-open browser)
+- `make dev` - Start full development environment (Hugo server + Wrangler dev + auto-open browser)
 - `make server` - Start Hugo development server only
-- `hugo server` - Alternative Hugo server command
 
 ### Content Creation
 
 - `make new` - Interactive prompt to create new blog post
-- `hugo new posts/filename.md` - Create new post directly
 - `make ss` - Convert latest screenshot to AVIF and organize for current WIP post
 
 ### Building & Deployment
 
 - `make build` - Build Hugo site to `public/` directory
-- `hugo` - Alternative build command
 
 ### Code Quality
 
 - `npm run lint` - Lint TypeScript/JavaScript files in functions/
 - `npm run type-check` - Run TypeScript type checking
 - `npm run ci` - Run both lint and type-check (use before committing)
-
 ### Dependencies
 
 - `make mod` - Update Hugo modules
-- `hugo mod get -u` - Alternative Hugo module update
+- `npm install` - Install Node.js dependencies
+
+## Tool Versions
+
+Managed via `mise.toml`:
+- Hugo Extended: 0.157.0
+- Node.js: 24.5.0
+
+The CI pipeline also pins the same Hugo version. Keep these in sync when updating.
 
 ## Project Architecture
 
 ### Hugo Site Structure
 
-- `content/posts/` - Blog posts in Markdown format
+- `content/posts/` - Blog posts in Markdown
 - `layouts/` - Hugo template overrides for the anatole theme
 - `static/` - Static assets (images, CSS, JS)
-- `config.toml` - Hugo configuration with theme settings and social links
+- `assets/css/` - Custom CSS (contributions, text-wrapping, about page)
+- `assets/js/` - Client-side JavaScript (GitHub contributions loader)
+- `config.toml` - Hugo configuration with theme settings, menu, and social links
 - `archetypes/default.md` - Template for new posts
+- `i18n/ja.yaml` - Japanese localization strings
 
 ### Cloudflare Integration
 
@@ -54,78 +61,39 @@ This is a Hugo-based blog hosted at <https://blog.koh-sh.com>, deployed via Clou
 
 ### Development Tools
 
-- ESLint configuration with TypeScript rules
-- TypeScript configured for ES2020 with DOM types
-- Textlint with Japanese technical writing presets for content quality
-- Utility script for automated screenshot conversion
-- GitHub Actions CI/CD pipeline for automated testing and building
+- ESLint with TypeScript rules for `functions/` directory
+- TypeScript strict mode (ES2020 target)
+- Textlint with `preset-ja-technical-writing` and `@textlint-ja/preset-ai-writing` for content quality
+- `_utils/makeavif.sh` - Screenshot conversion utility
 
 ## Key Features
 
-### Screenshot Workflow
-
-The `make ss` command automates screenshot management:
+### Screenshot Workflow (`make ss`)
 
 1. Finds latest screenshot from ~/Desktop
-2. Converts PNG to AVIF format using cavif
-3. Detects current WIP post and creates appropriate image directory
-4. Moves converted image with auto-incrementing filename
+2. Converts PNG to AVIF format using `cavif` CLI
+3. Detects current WIP post from git untracked files
+4. Auto-increments filenames (1.avif, 2.avif, etc.) in `static/images/[post-name]/`
 5. Outputs markdown image syntax for easy insertion
 
 ### GitHub Contributions API
 
-The `/functions/github-contributions.ts` endpoint:
+The `functions/github-contributions.ts` endpoint:
+- Fetches merged/open PRs from external repositories via GitHub API
+- CORS-enabled (localhost allowed in development)
+- 1-hour cache duration
+- Client-side rendering via `assets/js/contributions.js`
 
-- Fetches merged PRs from external repositories
-- Provides CORS-enabled API for the blog
-- Includes OpenGraph image URLs for PR previews
-- Implements proper error handling and caching
+## Content Guidelines
 
-### Theme and Styling
-
-- Uses anatole theme via Hugo modules
-- Custom layouts in `layouts/` directory override theme defaults
-- Static assets in `static/` supplement theme resources
-- Responsive design with CJK language support
-
-## Development Notes
-
-### Prerequisites
-
-- Hugo (latest version)
-- Node.js and npm
-- `cavif` command-line tool for image conversion
-- Wrangler CLI for Cloudflare development
-
-### Testing
-
-- Use `make dev` for full development environment
-- Test both Hugo site and Cloudflare functions locally
-- Run `npm run ci` before commits to ensure code quality
-
-### Content Guidelines
-
-- Posts use front matter with title, date, tags, and optional images
-- Images stored in `static/images/[post-name]/` directories
-- AVIF format preferred for optimal performance
-- Use `make ss` workflow for consistent image management
+- Posts use front matter: title, date, tags, and optional images (for OGP)
+- Images stored in `static/images/[post-name]/` directories, AVIF format preferred
 - Content should pass textlint checks for Japanese technical writing standards
 
 ## CI/CD Pipeline
 
-### GitHub Actions Workflow
+GitHub Actions (`.github/workflows/ci.yml`) runs on push to main and all PRs:
+1. ESLint + TypeScript type checking
+2. Hugo build with minification (using pinned Hugo version)
 
-The `.github/workflows/ci.yml` automatically runs on push and PR:
-
-1. **Code Quality Checks**
-   - ESLint for TypeScript files
-   - TypeScript type checking
-
-2. **Build Verification**
-   - Hugo site build with minification
-   - Dart Sass compilation
-
-### Automated Dependencies
-
-- Dependabot configured for npm, Go modules, and GitHub Actions updates
-- Weekly automated dependency updates via PRs
+Dependabot manages weekly updates for npm, Go modules, and GitHub Actions.
