@@ -1,6 +1,75 @@
-/* Stats section layout fixes for about page */
+/* Hide sidebar description (shown in main content instead) */
+/* Note: depends on anatole theme's internal class name - verify on theme updates */
+.sidebar__introduction-description {
+    display: none;
+}
 
-/* Flex layout for stats images - vertical stack, left-aligned */
+/* About page section cards */
+.about-section {
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: rgba(128, 128, 128, 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #4a9eff;
+}
+
+.timeline-date {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-role {
+    opacity: 0.7;
+}
+
+/* Content image defaults */
+.content-image {
+    display: block;
+    margin: 0 auto 0 0 !important;
+    text-align: left !important;
+}
+
+/* Stats section layout */
 .stats-images {
     display: flex;
     flex-direction: column;
@@ -15,18 +84,6 @@
     height: auto;
 }
 
-/* Skills section - left align skills icons */
-.content-image {
-    display: block;
-    margin: 0 auto 0 0 !important;
-    text-align: left !important;
-}
-
-/* Target the paragraph containing skills image specifically */
-.post__content p:has(img[alt="my skills"]) {
-    text-align: left !important;
-}
-
 /* Stats row - horizontal layout for stats and languages cards */
 .stats-row {
     display: flex;
@@ -35,13 +92,30 @@
     gap: 1rem;
 }
 
+/* Skills section - larger and centered */
+.skills-icons {
+    text-align: center;
+}
+
+.skills-icons .content-image {
+    display: inline-block;
+    margin: 0 auto !important;
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    .stats-images .content-image {
-        max-width: 100%;
+    .about-section {
+        padding: 1rem 1.25rem;
     }
 
     .stats-row {
         flex-direction: column;
+    }
+
+    .skills-icons .content-image {
+        max-width: 100%;
     }
 }

@@ -36,7 +36,7 @@ enableRobotsTXT = true
 [params]
   title = "koh's blog"
   author = "koh-sh"
-  description = "I'm an SRE who previously worked as a system administrator and infrastructure engineer."
+  description = "Site Reliability Engineer based in Japan."
   profilePicture = "avatar.avif"
   images = ["avatar.png"]  # OGP default image
   mainSections = ["posts"]
