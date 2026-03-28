@@ -1,0 +1,11 @@
+<ul class="link-list">
+  {{ $lines := split .Inner "\n" }}
+  {{ range $lines }}
+    {{ $trimmed := strings.TrimSpace . }}
+    {{ if findRE `^\[.+\]\(.+\)$` $trimmed }}
+      {{ $text := replaceRE `^\[(.+)\]\(.+\)$` "$1" $trimmed }}
+      {{ $url := replaceRE `^\[.+\]\((.+)\)$` "$1" $trimmed }}
+      <li><a href="{{ $url }}" target="_blank" rel="noopener noreferrer">{{ $text }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
