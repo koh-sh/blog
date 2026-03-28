@@ -3,12 +3,6 @@
     "version": "1.0.0",
     "private": true,
     "type": "module",
-    "scripts": {
-        "lint": "eslint 'functions/**/*.{js,ts}'",
-        "type-check": "tsc --noEmit",
-        "test": "vitest run",
-        "ci": "npm run lint && npm run type-check && npm run test"
-    },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@typescript-eslint/eslint-plugin": "^8.57.1",

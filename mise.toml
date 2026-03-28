@@ -1,3 +1,57 @@
 [tools]
 hugo-extended = "0.157.0"
 node = "24.5.0"
+
+[tasks.server]
+description = "Start Hugo development server"
+run = "hugo server"
+
+[tasks.dev]
+description = "Start full development environment (Hugo + Wrangler + browser)"
+raw = true
+run = """
+#!/usr/bin/env bash
+echo "Starting development environment..."
+trap 'kill 0; exit 0' SIGINT SIGTERM
+hugo server &
+npx wrangler pages dev . &
+sleep 1 && open http://localhost:1313/ &
+wait
+"""
+
+[tasks.new]
+description = "Create a new blog post (interactive)"
+interactive = true
+run = """
+#!/usr/bin/env bash
+read -p "Enter the article filename (e.g. example.md): " post_name
+hugo new posts/$post_name
+"""
+
+[tasks.mod]
+description = "Update Hugo modules"
+run = "hugo mod get -u"
+
+[tasks.build]
+description = "Build Hugo site"
+run = "hugo"
+
+[tasks.ss]
+description = "Convert latest screenshot to AVIF"
+run = "./_utils/makeavif.sh"
+
+[tasks.lint]
+description = "Lint TypeScript/JavaScript files"
+run = "npx eslint 'functions/**/*.{js,ts}'"
+
+[tasks.type-check]
+description = "Run TypeScript type checking"
+run = "npx tsc --noEmit"
+
+[tasks.test]
+description = "Run tests"
+run = "npx vitest run"
+
+[tasks.ci]
+description = "Run lint, type-check, and tests"
+depends = ["lint", "type-check", "test"]
