@@ -142,6 +142,13 @@ export async function onRequest(context: RequestContext): Promise<Response> {
       fetchGitHubPRsByState('open')
     ]);
 
+    // Sort merged PRs by merge date (closed_at) descending
+    mergedPRs.sort((a, b) => {
+      const dateA = a.closed_at ? new Date(a.closed_at).getTime() : 0;
+      const dateB = b.closed_at ? new Date(b.closed_at).getTime() : 0;
+      return dateB - dateA;
+    });
+
     return new Response(
       JSON.stringify([...openPRs, ...mergedPRs]),
       { headers: getResponseHeaders(origin) }

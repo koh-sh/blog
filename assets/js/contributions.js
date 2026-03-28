@@ -89,6 +89,35 @@ async function initializeContributionsList() {
             return;
         }
 
+        const mergedCount = contributions.filter(pr => pr.state === 'merged').length;
+        const openCount = contributions.filter(pr => pr.state === 'open').length;
+        const repoCount = new Set(contributions.map(pr => pr.repo_name)).size;
+
+        const categories = { Fix: 0, Feature: 0, Docs: 0, Other: 0 };
+        contributions.forEach(pr => {
+            const match = pr.title.match(/^(fix|feat|feature|docs)[\s(:]/i);
+            if (!match) { categories.Other++; return; }
+            const type = match[1].toLowerCase();
+            if (type === 'fix') categories.Fix++;
+            else if (type === 'feat' || type === 'feature') categories.Feature++;
+            else if (type === 'docs') categories.Docs++;
+        });
+
+        const statsEl = document.getElementById('contributions-stats');
+        if (statsEl) {
+            const summaryParts = [`${mergedCount} merged`];
+            if (openCount > 0) summaryParts.push(`${openCount} open`);
+            summaryParts.push(`across ${repoCount} repositories`);
+
+            const catParts = Object.entries(categories)
+                .filter(([, count]) => count > 0)
+                .map(([label, count]) => `${label}: ${count}`);
+
+            statsEl.innerHTML =
+                `<div>${summaryParts.join(' · ')}</div>` +
+                (catParts.length > 0 ? `<div>${catParts.join(' · ')}</div>` : '');
+        }
+
         contributionsList.innerHTML = contributions.map(createPrElement).join('');
     } catch (error) {
         contributionsList.innerHTML = `
