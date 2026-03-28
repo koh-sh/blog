@@ -8,28 +8,32 @@ This is a Hugo-based blog hosted at <https://blog.koh-sh.com>, deployed via Clou
 
 ## Common Commands
 
+All tasks are managed via mise task runner (`mise.toml`).
+
 ### Development
 
-- `make dev` - Start full development environment (Hugo server + Wrangler dev + auto-open browser)
-- `make server` - Start Hugo development server only
+- `mise run dev` - Start full development environment (Hugo server + Wrangler dev + auto-open browser)
+- `mise run server` - Start Hugo development server only
 
 ### Content Creation
 
-- `make new` - Interactive prompt to create new blog post
-- `make ss` - Convert latest screenshot to AVIF and organize for current WIP post
+- `mise run new` - Interactive prompt to create new blog post
+- `mise run ss` - Convert latest screenshot to AVIF and organize for current WIP post
 
 ### Building & Deployment
 
-- `make build` - Build Hugo site to `public/` directory
+- `mise run build` - Build Hugo site to `public/` directory
 
 ### Code Quality
 
-- `npm run lint` - Lint TypeScript/JavaScript files in functions/
-- `npm run type-check` - Run TypeScript type checking
-- `npm run ci` - Run both lint and type-check (use before committing)
+- `mise run lint` - Lint TypeScript/JavaScript files in functions/
+- `mise run type-check` - Run TypeScript type checking
+- `mise run test` - Run tests
+- `mise run ci` - Run lint, type-check, and tests in parallel (use before committing)
+
 ### Dependencies
 
-- `make mod` - Update Hugo modules
+- `mise run mod` - Update Hugo modules
 - `npm install` - Install Node.js dependencies
 
 ## Tool Versions
@@ -38,7 +42,7 @@ Managed via `mise.toml`:
 - Hugo Extended: 0.157.0
 - Node.js: 24.5.0
 
-The CI pipeline also pins the same Hugo version. Keep these in sync when updating.
+The CI pipeline uses `jdx/mise-action` to install tools from `mise.toml`, so versions are always in sync.
 
 ## Project Architecture
 
@@ -68,7 +72,7 @@ The CI pipeline also pins the same Hugo version. Keep these in sync when updatin
 
 ## Key Features
 
-### Screenshot Workflow (`make ss`)
+### Screenshot Workflow (`mise run ss`)
 
 1. Finds latest screenshot from ~/Desktop
 2. Converts PNG to AVIF format using `cavif` CLI
@@ -93,7 +97,7 @@ The `functions/github-contributions.ts` endpoint:
 ## CI/CD Pipeline
 
 GitHub Actions (`.github/workflows/ci.yml`) runs on push to main and all PRs:
-1. ESLint + TypeScript type checking
-2. Hugo build with minification (using pinned Hugo version)
+1. `mise run ci` - ESLint + TypeScript type checking + tests (parallel)
+2. Hugo build with minification
 
 Dependabot manages weekly updates for npm, Go modules, and GitHub Actions.
