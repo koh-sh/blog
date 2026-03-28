@@ -26,7 +26,7 @@ export interface PRData {
 }
 
 // Configuration constants
-export const CONFIG = {
+const CONFIG = {
   github: {
     account: 'koh-sh',
     apiBase: 'https://api.github.com',
