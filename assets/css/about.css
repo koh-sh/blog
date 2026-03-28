@@ -27,9 +27,21 @@
     text-align: left !important;
 }
 
+/* Stats row - horizontal layout for stats and languages cards */
+.stats-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .stats-images .content-image {
         max-width: 100%;
+    }
+
+    .stats-row {
+        flex-direction: column;
     }
 }
