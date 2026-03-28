@@ -8,16 +8,14 @@ draft: false
 
 {{< param description >}}
 
-## 👨‍💻 Work Experience
+{{< about-section title="Experience" >}}
+{{< timeline >}}
+{{< /about-section >}}
 
-- **2021/07 - Present**: Site Reliability Engineer
-- **2018/01 - 2021/06**: System Administrator
-- **2015/08 - 2017/12**: Infrastructure Engineer
-
-## 📊 Stats
-
+{{< about-section title="GitHub Activity" >}}
 {{< stats >}}
+{{< /about-section >}}
 
-## 🔨 Skills
-
+{{< about-section title="Tech Stack" >}}
 {{< skills >}}
+{{< /about-section >}}
