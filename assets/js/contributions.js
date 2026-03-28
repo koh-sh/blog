@@ -89,6 +89,20 @@ async function initializeContributionsList() {
             return;
         }
 
+        const mergedCount = contributions.filter(pr => pr.state === 'merged').length;
+        const openCount = contributions.filter(pr => pr.state === 'open').length;
+
+        const statsEl = document.getElementById('contributions-stats');
+        if (statsEl) {
+            const badges = [
+                `<span class="stat-badge badge-merged"><span class="stat-count">${mergedCount}</span> merged</span>`,
+            ];
+            if (openCount > 0) {
+                badges.push(`<span class="stat-badge badge-open"><span class="stat-count">${openCount}</span> open</span>`);
+            }
+            statsEl.innerHTML = badges.join('');
+        }
+
         contributionsList.innerHTML = contributions.map(createPrElement).join('');
     } catch (error) {
         contributionsList.innerHTML = `

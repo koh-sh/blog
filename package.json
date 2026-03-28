@@ -6,14 +6,16 @@
     "scripts": {
         "lint": "eslint 'functions/**/*.{js,ts}'",
         "type-check": "tsc --noEmit",
-        "ci": "npm run lint && npm run type-check"
+        "test": "vitest run",
+        "ci": "npm run lint && npm run type-check && npm run test"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@typescript-eslint/eslint-plugin": "^8.57.1",
         "@typescript-eslint/parser": "^8.31.0",
         "eslint": "^10.1.0",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "vitest": "^4.1.2"
     },
     "dependencies": {
         "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",

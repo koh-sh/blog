@@ -1,5 +1,47 @@
 /* Contributions page styles - Fixed for Anatole theme */
 
+.contributions-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat-badge .stat-count {
+    font-weight: 700;
+}
+
+html.theme--light .stat-badge.badge-merged {
+    background: rgba(130, 80, 223, 0.1) !important;
+    color: #8250df !important;
+}
+
+html.theme--dark .stat-badge.badge-merged {
+    background: rgba(130, 80, 223, 0.2) !important;
+    color: #a371f7 !important;
+}
+
+html.theme--light .stat-badge.badge-open {
+    background: rgba(35, 134, 54, 0.1) !important;
+    color: #1a7f37 !important;
+}
+
+html.theme--dark .stat-badge.badge-open {
+    background: rgba(35, 134, 54, 0.2) !important;
+    color: #3fb950 !important;
+}
+
 .contributions-content {
     display: flex;
     flex-direction: column;

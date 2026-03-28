@@ -1,5 +1,5 @@
 // Types for GitHub API responses and internal data structures
-interface GitHubPR {
+export interface GitHubPR {
     title: string;
     body: string | null;
     html_url: string;
@@ -14,7 +14,7 @@ interface GitHubSearchResponse {
     total_count: number;
 }
 
-interface PRData {
+export interface PRData {
     title: string;
     body: string | null;
     html_url: string;
@@ -44,23 +44,23 @@ const CONFIG = {
 } as const;
 
 // Build GitHub search query with specified state
-const buildGitHubSearchQuery = (account: string, state: 'merged' | 'open'): string => {
+export const buildGitHubSearchQuery = (account: string, state: 'merged' | 'open'): string => {
   const stateFilter = state === 'merged' ? 'is:merged' : 'is:open';
   return `is:pr archived:false ${stateFilter} is:public author:${account} -user:${account}`;
 };
 
 // Construct the full search URL for GitHub API
-const buildSearchUrl = (query: string): string => {
+export const buildSearchUrl = (query: string): string => {
   return `${CONFIG.github.apiBase}/search/issues?q=${encodeURIComponent(query)}&sort=created&order=desc`;
 };
 
 // Validate if the origin is in the allowed list
-const isAllowedOrigin = (origin: string | null): boolean => {
+export const isAllowedOrigin = (origin: string | null): boolean => {
   return origin !== null && CONFIG.cors.allowedOrigins.includes(origin);
 };
 
 // Transform GitHub PR data into our internal format
-const buildPrData = (item: GitHubPR, state: 'merged' | 'open'): PRData => {
+export const buildPrData = (item: GitHubPR, state: 'merged' | 'open'): PRData => {
   const repoPath = item.repository_url.split('/repos/')[1];
   return {
     title: item.title,
@@ -75,7 +75,7 @@ const buildPrData = (item: GitHubPR, state: 'merged' | 'open'): PRData => {
 };
 
 // Generate response headers with CORS and cache settings
-const getResponseHeaders = (origin: string | null): Record<string, string> => {
+export const getResponseHeaders = (origin: string | null): Record<string, string> => {
   const headers: Record<string, string> = {
     'content-type': 'application/json;charset=UTF-8',
     'cache-control': `public, max-age=${CONFIG.cache.duration}`,
@@ -110,7 +110,7 @@ class APIError extends Error {
 }
 
 // Fetch GitHub PRs for a specific state
-const fetchGitHubPRsByState = async (state: 'merged' | 'open'): Promise<PRData[]> => {
+export const fetchGitHubPRsByState = async (state: 'merged' | 'open'): Promise<PRData[]> => {
   const searchResponse = await fetch(
     buildSearchUrl(buildGitHubSearchQuery(CONFIG.github.account, state)),
     {
@@ -141,6 +141,13 @@ export async function onRequest(context: RequestContext): Promise<Response> {
       fetchGitHubPRsByState('merged'),
       fetchGitHubPRsByState('open')
     ]);
+
+    // Sort merged PRs by merge date (closed_at) descending
+    mergedPRs.sort((a, b) => {
+      const dateA = a.closed_at ? new Date(a.closed_at).getTime() : 0;
+      const dateB = b.closed_at ? new Date(b.closed_at).getTime() : 0;
+      return dateB - dateA;
+    });
 
     return new Response(
       JSON.stringify([...openPRs, ...mergedPRs]),
