@@ -96,10 +96,8 @@ async function initializeContributionsList() {
         if (statsEl) {
             const badges = [
                 `<span class="stat-badge badge-merged"><span class="stat-count">${mergedCount}</span> merged</span>`,
+                `<span class="stat-badge badge-open"><span class="stat-count">${openCount}</span> open</span>`,
             ];
-            if (openCount > 0) {
-                badges.push(`<span class="stat-badge badge-open"><span class="stat-count">${openCount}</span> open</span>`);
-            }
             statsEl.innerHTML = badges.join('');
         }
 
