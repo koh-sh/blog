@@ -5,16 +5,16 @@
     "type": "module",
     "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@typescript-eslint/eslint-plugin": "^8.59.1",
+        "@typescript-eslint/eslint-plugin": "^8.59.3",
         "@typescript-eslint/parser": "^8.31.0",
-        "eslint": "^10.3.0",
+        "eslint": "^10.4.0",
         "typescript": "^6.0.3",
-        "vitest": "^4.1.5"
+        "vitest": "^4.1.6"
     },
     "dependencies": {
-        "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.3",
-        "textlint": "^15.6.0",
+        "@textlint-ja/textlint-rule-preset-ai-writing": "^1.7.0",
+        "textlint": "^15.7.0",
         "textlint-rule-preset-ja-technical-writing": "^12.0.2",
-        "wrangler": "^4.87.0"
+        "wrangler": "^4.92.0"
     }
 }
