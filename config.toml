@@ -2,7 +2,7 @@ baseURL = "https://blog.koh-sh.com"
 title = "koh's blog"
 hasCJKLanguage = true
 summaryLength = 80
-languageCode = "ja"
+locale = "ja"
 defaultContentLanguage = "ja"
 enableRobotsTXT = true
 
