@@ -1,5 +1,8 @@
 // GitHub contributions functionality
 const MAX_DESCRIPTION_LENGTH = 140;
+// Upper bound on text passed to the link-stripping regex, which backtracks
+// quadratically on long unmatched input (PR bodies are third-party editable)
+const MAX_SOURCE_LENGTH = 2000;
 
 function getDescription(markdown, maxLength = MAX_DESCRIPTION_LENGTH) {
     if (!markdown) return '';
@@ -9,6 +12,7 @@ function getDescription(markdown, maxLength = MAX_DESCRIPTION_LENGTH) {
         .map(line => line.trim())
         .filter(line => line && !line.startsWith('#') && !line.startsWith('!['))
         .join(' ')
+        .slice(0, MAX_SOURCE_LENGTH)
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
         .replace(/[*`]/g, '')
         .trim()

@@ -36,7 +36,7 @@ const CONFIG = {
   cors: {
     allowedOrigins: ['http://localhost:1313'] as string[],
     maxAge: '86400',
-    allowedMethods: 'GET,OPTIONS'
+    allowedMethods: 'GET'
   },
   cache: {
     duration: 3600
@@ -74,11 +74,12 @@ export const buildPrData = (item: GitHubPR, state: 'merged' | 'open'): PRData =>
   };
 };
 
-// Generate response headers with CORS and cache settings
-export const getResponseHeaders = (origin: string | null): Record<string, string> => {
+// Generate response headers with CORS and cache settings.
+// Pass cacheable=false for errors so caches never keep a failure (e.g. a GitHub rate limit).
+export const getResponseHeaders = (origin: string | null, cacheable = true): Record<string, string> => {
   const headers: Record<string, string> = {
     'content-type': 'application/json;charset=UTF-8',
-    'cache-control': `public, max-age=${CONFIG.cache.duration}`,
+    'cache-control': cacheable ? `public, max-age=${CONFIG.cache.duration}` : 'no-store',
     'Access-Control-Allow-Methods': CONFIG.cors.allowedMethods,
     'Access-Control-Max-Age': CONFIG.cors.maxAge
   };
@@ -132,8 +133,8 @@ export const fetchGitHubPRsByState = async (state: 'merged' | 'open'): Promise<P
   return data.items.map(item => buildPrData(item, state));
 };
 
-// Main request handler for Cloudflare Workers
-export async function onRequest(context: RequestContext): Promise<Response> {
+// Main request handler for Cloudflare Workers (GET only, so other methods never call GitHub)
+export async function onRequestGet(context: RequestContext): Promise<Response> {
   const origin = context.request.headers.get('Origin');
 
   try {
@@ -161,7 +162,7 @@ export async function onRequest(context: RequestContext): Promise<Response> {
       JSON.stringify({ error: errorMessage }),
       {
         status: statusCode,
-        headers: getResponseHeaders(origin)
+        headers: getResponseHeaders(origin, false)
       }
     );
   }
