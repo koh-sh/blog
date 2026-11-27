@@ -9,7 +9,7 @@
         "@typescript-eslint/parser": "^8.71.2",
         "eslint": "^10.15.0",
         "typescript": "^6.0.3",
-        "vitest": "^4.1.12"
+        "vitest": "^5.1.1"
     },
     "dependencies": {
         "@textlint-ja/textlint-rule-preset-ai-writing": "^1.7.1",
