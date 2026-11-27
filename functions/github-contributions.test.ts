@@ -6,7 +6,7 @@ import {
   buildPrData,
   getResponseHeaders,
   fetchGitHubPRsByState,
-  onRequest,
+  onRequestGet,
 } from './github-contributions.js';
 import type { GitHubPR } from './github-contributions.js';
 
@@ -132,8 +132,13 @@ describe('getResponseHeaders', () => {
     const headers = getResponseHeaders(null);
     expect(headers['content-type']).toBe('application/json;charset=UTF-8');
     expect(headers['cache-control']).toBe('public, max-age=3600');
-    expect(headers['Access-Control-Allow-Methods']).toBe('GET,OPTIONS');
+    expect(headers['Access-Control-Allow-Methods']).toBe('GET');
     expect(headers['Access-Control-Max-Age']).toBe('86400');
+  });
+
+  it('uses no-store when not cacheable', () => {
+    const headers = getResponseHeaders(null, false);
+    expect(headers['cache-control']).toBe('no-store');
   });
 });
 
@@ -160,7 +165,7 @@ describe('fetchGitHubPRsByState', () => {
   });
 });
 
-describe('onRequest', () => {
+describe('onRequestGet', () => {
   const createContext = (origin: string | null) => ({
     request: {
       headers: {
@@ -174,7 +179,7 @@ describe('onRequest', () => {
     const openItems = [createMockPR({ title: 'open PR', number: 2, closed_at: null })];
     mockFetchByUrl(mergedItems, openItems);
 
-    const response = await onRequest(createContext(null));
+    const response = await onRequestGet(createContext(null));
     const body = await response.json();
 
     expect(response.status).toBe(200);
@@ -190,7 +195,7 @@ describe('onRequest', () => {
     ];
     mockFetchByUrl(mergedItems);
 
-    const response = await onRequest(createContext(null));
+    const response = await onRequestGet(createContext(null));
     const body = await response.json();
 
     expect(body[0].title).toBe('newer');
@@ -204,7 +209,7 @@ describe('onRequest', () => {
     ];
     mockFetchByUrl(mergedItems);
 
-    const response = await onRequest(createContext(null));
+    const response = await onRequestGet(createContext(null));
     const body = await response.json();
 
     expect(body[0].title).toBe('with-date');
@@ -214,7 +219,7 @@ describe('onRequest', () => {
   it('includes CORS header for allowed origin', async () => {
     mockFetchByUrl([]);
 
-    const response = await onRequest(createContext('http://localhost:1313'));
+    const response = await onRequestGet(createContext('http://localhost:1313'));
     expect(response.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:1313');
   });
 
@@ -224,10 +229,11 @@ describe('onRequest', () => {
       status: 403,
     }));
 
-    const response = await onRequest(createContext(null));
+    const response = await onRequestGet(createContext(null));
     const body = await response.json();
 
     expect(response.status).toBe(403);
     expect(body.error).toContain('403');
+    expect(response.headers.get('cache-control')).toBe('no-store');
   });
 });
